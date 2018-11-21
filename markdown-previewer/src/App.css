@@ -1,0 +1,39 @@
+.App-header {
+  background-color: #222;
+  height: 100px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 2em;
+}
+
+.App-intro {
+  font-size: large;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#preview {
+  height: 600px;
+  width: 80%;
+  padding: 8px;
+  background-color: lightgray;
+  overflow: scroll;
+  text-align: start;
+  border: 1px solid rgb(169, 169, 169);
+}
+
+#editor {
+  height: 600px;
+  width: 80%;
+  padding: 8px;
+  background-color: lightgray;
+  overflow: scroll;
+  text-align: start;
+  font-family: monospace;
+  resize: none;
+}

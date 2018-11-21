@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+  <style>
+  .container {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 80% 10%;
+    grid-gap: 15px;
+    grid-template-areas:
+      "header header header"
+      ". survey ."
+      "footer footer footer";
+  }
+  .header {
+    grid-area: header;
+    font-weight: bold;
+  }
+  .survey {
+    background: #FFF;
+    grid-area: survey;
+    margin: 10px;
+    padding: 20px;
+    border-style: solid;
+    border-radius: 10%;
+    border-color: #FFF;
+  }
+  .footer {
+    grid-area: footer;
+    margin: 10px;
+    font-weight: bold;
+  }
+  .question {
+    grid-area: question;
+    text-align: right;
+    display: inline-block;
+    width: 40%;
+    padding: 5px;
+    align-items: start;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+  .answer {
+    grid-area: answer;
+    text-align: left;
+    display: inline-block;
+    width: 40%;
+    padding: 5px;
+    align-items: center;
+    vertical-align: bottom;
+  }
+  .radio, .check {
+    position: relative;
+    left: -45px;
+
+  }
+  html,body {
+    font-family: Garamond, sans-serif;
+    text-align: center;
+    background-image: url("http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1920x1234.jpg");
+  }
+  h1 {
+    font-size: 50pt;
+  }
+  p {
+    font-size: 16pt;
+  }
+  label {
+    font-size: 14pt;
+  }
+  @media (max-width: 800px) {
+    .survey {
+      width: 600px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div id="main" class="container">
+    <div id="header" class="header">
+      <h1 id="title">Survey Form</h1>
+      <p id="description">Required fields are marked by <abbr title="required">*</abbr>.</p>
+    </div>
+
+    <div id="survey" class="survey">
+      <form id="survey-form" action="/submit-form">
+        <div class="formQ">
+          <div class="question">
+            <label id="name-label" for="name"><abbr title="required">*</abbr>Name: </label>
+          </div>
+          <div class="answer">
+            <input id="name" type="text" placeholder="John Bot" required>
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label id="email-label" for="email"><abbr title="required">*</abbr>Email: </label>
+          </div>
+          <div class="answer">
+            <input id="email" type="email" placeholder="bot@freeCodeCamp.com" required>
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label id="number-label" for="number"><abbr title="required">*</abbr>Age: </label>
+          </div>
+          <div class="answer">
+            <input id="number" type="number" placeholder="E.g., 44" required min="0" max="120">
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label id="drop-label" for="dropdown">What type of developer are you? </label>
+          </div>
+          <div class="answer">
+            <select id="dropdown" type="dropdown">
+              <option disabled value>Select an option</option>
+              <option value="front">Front-end</option>
+              <option value="back">Back-end</option>
+              <option value="full">Full-stack</option>
+              <option value="web">Web</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label for="radio"><abbr title="required">*</abbr>Would you recommend coding to others? </label>
+          </div>
+          <div class="answer">
+            <ul style="list-style: none;" id="radio">
+              <li class="radio">
+                <label for="absolutely">
+                  <input name="radio-button" type="radio" value="1" id="absolutely">
+                  Absolutely
+                </label>
+              </li>
+              <li class="radio">
+                <label for="maybe">
+                  <input name="radio-button" type="radio" value="2" id="maybe">
+                  Maybe
+                </label>
+              </li>
+              <li class="radio">
+                <label for="nope">
+                  <input name="radio-button" type="radio" value="3" id="nope">
+                  Not a chance
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label for="check">Which services to you use? (check all that apply) </label>
+          </div>
+          <div class="answer">
+            <ul style="list-style: none;" id="check">
+              <li class="check">
+                <label for="fcc">
+                  <input type="checkbox" value="fcc" id="fcc">
+                  freeCodeCamp
+                </label>
+              </li>
+              <li class="check">
+                <label for="git">
+                  <input type="checkbox" value="git" id="git">
+                  GitHub
+                </label>
+              </li>
+              <li class="check">
+                <label for="stack">
+                  <input type="checkbox" value="stack" id="stack">
+                  StackOverflow
+                </label>
+              </li>
+              <li class="check">
+                <label for="ca">
+                  <input type="checkbox" value="ca" id="ca">
+                  Codeacademy
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="formQ">
+          <div class="question">
+            <label for="comments">Any comments? </label>
+          </div>
+          <div class="answer">
+            <textarea id="comments" class="input-field" style="height: 50px;resize: vertical;width: 250px;" name="comment" placeholder="Enter comments here..."></textarea>
+          </div>
+        </div>
+        <div class="submit">
+          <button id="submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="footer" class="footer">
+      <p>Thanks for participating!</p>
+    </div>
+  </div>
+</body>
+</html>

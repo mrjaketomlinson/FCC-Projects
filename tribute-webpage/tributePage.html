@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thomas Jefferson: Tribute Page</title>
+  <style>
+    /* GRID for webpage */
+    .container {
+      min-height: 100%;
+      width: 100%;
+      background: url("https://raw.githubusercontent.com/mrjaketomlinson/Jefferson-Tribute-Page/master/background.jpg");
+      display: grid;
+      grid-template-rows: auto auto auto;
+      grid-gap: 15px;
+      grid-template-areas:
+        "header"
+        "pic"
+        "content"
+        "footer";
+    }
+    .header {
+      background: whitesmoke;
+      grid-area: header;
+      justify-items: start;
+      border: 1px solid #000;
+      border-radius: 10px;
+      justify-self: center;
+    }
+    .pic {
+      /*background: blue;*/
+      grid-area: pic;
+    }
+    .content {
+      background: whitesmoke;
+      grid-area: content;
+      justify-content: center;
+      border: 1px solid #000;
+      border-radius: 10px;
+      justify-self: center;
+    }
+    .footer {
+      background: whitesmoke;
+      grid-area: footer;
+      border: 1px solid #000;
+      border-radius: 10px;
+      justify-self: center;
+      padding: 10px;
+    }
+
+    /* TEXT properties */
+    html,body {
+      font-family: Garamond, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 25px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 20px;
+      max-width: 75%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    ul {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    li {
+      margin: 12px;
+    }
+    blockquote {
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    /* IMAGE properties */
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      margin: auto;
+      border-radius: 10%;
+    }
+    #img-caption {
+      margin: 5px;
+    }
+    .header-padding {
+      padding: 50px;
+      /*margin: auto;*/
+    }
+  </style>
+</head>
+
+<body>
+<main>
+<div class="container" id="main">
+
+<div class="header-padding header">
+  <h1 id="title">Thomas Jefferson</h1>
+  <h2>The man who crafted the mission statement for a revolution</h2>
+</div>
+
+<div id="img-div" class="pic">
+  <img id="image" class="img-border" src="https://raw.githubusercontent.com/mrjaketomlinson/Jefferson-Tribute-Page/master/tj.jpg" alt="Thomas Jefferson">
+  <div id="img-caption">This is a portrait of Thomas Jefferson.</div>
+</div>
+<hr>
+<div class="content">
+
+  <blockquote>
+  <p>"The issue today is the same as it has been throughout all history, whether man shall be allowed to govern himself or be ruled by a small elite."</p>
+  <div>-- Thomas Jefferson</div>
+  </blockquote>
+
+  <div id="tribute-info">
+  <h3>A timeline of some of the major events in Jefferson's public life:</h3>
+  <ul>
+    <li><strong>1743</strong> - Thomas Jefferson was born at Shadwell.</li>
+    <li><strong>1760-62</strong> - Attended the College of William and Mary.</li>
+    <li><strong>1762</strong> - Began study of law with George Wythe.</li>
+    <li><strong>1768</strong> - Elected to House of Burgesses. Leveling of Monticello mountaintop for a new home began.</li>
+    <li><strong>1772</strong> - Married Martha Wayles Skelton. Daughter Martha was born.</li>
+    <li><strong>1774</strong> - Wrote "A Summary View of the Rights of British America.</li>
+    <li><strong>1775</strong> - Elected to Continental Congress.</li>
+    <li><strong>1776</strong> - Drafted Declaration of Independence. Elected to Virginia House of Delegates and appointed to revise Virginia laws.</li>
+    <li><strong>1779-81</strong> - Served as Governor of Virginia.</li>
+    <li><strong>1783</strong> - Elected delegate to Congress.</li>
+    <li><strong>1790-93</strong> - Served as first United States Secretary of State.</li>
+    <li><strong>1797-1801</strong> - Served as United States Vice President.</li>
+    <li><strong>1801-09</strong> - Served as United States President.</li>
+    <li><strong>1803</strong> - Louisiana Purchase concluded. Lewis and Clark expedition launched.</li>
+    <li><strong>1806</strong> - Lewis and Clark expedition concluded.</li>
+    <li><strong>1809</strong> - Retired from the presidency and public life.</li>
+    <li><strong>1815</strong> - Sold 6,700-volume library to Congress.</li>
+    <li><strong>1825</strong> - University of Virginia opened.</li>
+    <li><strong>1826</strong> - Died at Monticello, July 4.</li>
+  </ul>
+  </div>
+
+</div>
+<hr>
+<div class="footer">
+<h3>For more information about Thomas Jefferson, <a href="https://www.history.com/topics/us-presidents/thomas-jefferson" target="_blank" id="tribute-link">visit History.com</a> and the <a href="https://www.monticello.org/site/jefferson/timeline-jeffersons-life" target="_blank">Thomas Jefferson Foundation website</a>.</h3>
+</div>
+
+</div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jacob Tomlinson Portfolio</title>
+  <style>
+    html, body {
+      text-align: center;
+      font-family: Garamond, sans-serif;
+      background: white;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    nav#navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      background: darkorange;
+    }
+    nav#navbar ul {
+      list-style-type: none;
+      padding: 10px;
+    }
+    nav#navbar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 14px 25px;
+      text-align: center;
+      float: right;
+    }
+    nav#navbar a:hover {
+      background-color: #888888;
+      color: #000;
+    }
+    div#welcome-section {
+      background: darkorange;
+      min-height: 55vh;
+      padding-top: 45vh;
+    }
+    div#welcome-section h1 {
+      font-size: 7vh ;
+    }
+    div#welcome-section p {
+      font-size: 4vh;
+    }
+    div#projects {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .leftcolumn {
+      float: left;
+      width: 50%;
+    }
+    .rightcolumn {
+      float: right;
+      width: 50%;
+    }
+    .project-tile {
+      margin: 5px;
+      padding: 10px;
+
+    }
+    .project-pic {
+      border: 2px solid;
+      border-color: darkorange;
+      width: 65%;
+      height: 65%;
+      padding: 10px;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 25px;
+    }
+    p {
+      font-size: 16px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    .button {
+      display: inline-block;
+      margin: 30px auto 90px;
+      background: #FFF;
+      width: 100%;
+    }
+    .button-details {
+      color: black;
+      border: 2px solid hsl(33, 100%, 50%);
+      padding: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2em;
+    }
+    div#visit-git a:hover {
+      background-color: #888888;
+      color: #000;
+    }
+    div#contact {
+      background: darkorange;
+      padding-bottom: 100px;
+      padding-top: 50px;
+    }
+    .contact-details {
+      display: inline-block;
+      border: 2px solid;
+      border-color: black;
+      border-radius: 100%;
+      width: 150px;
+      height: 150px;
+      margin: 50px 30px 30px 0;
+      background: white;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      font-size: 1.5em;
+      line-height: 150px;
+      font-weight: bold;
+    }
+    div#contact a:hover {
+      background-color: #888888;
+      color: #000;
+    }
+    @media (max-width: 800px) {
+      .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 500px) {
+      nav#navbar a {
+        float: none;
+        width: 100%;
+      }
+      div#contact {
+        float: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <ul>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://github.com/mrjaketomlinson" id="profile-link" target="_blank">My GitHub</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#welcome-section">Home</a></li>
+  </ul>
+</nav>
+
+<div id="welcome-section">
+  <h1>Jacob Tomlinson</h1>
+  <p>Developer</p>
+</div>
+
+<div id="projects">
+  <h2>Projects</h2>
+  <div class="leftcolumn">
+    <div class="project-tile">
+      <a href="https://github.com/mrjaketomlinson/Jefferson-Tribute-Page/blob/master/tributePage.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/mrjaketomlinson/Jefferson-Tribute-Page/master/tribute.jpg" class="project-pic" alt="tribute project">
+        <h3>Tribute Page</h3>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://github.com/mrjaketomlinson/surveyForm/blob/master/surveyForm.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/mrjaketomlinson/surveyForm/master/survey.jpg" class="project-pic" alt="survey project">
+        <h3>Survey Page</h3>
+      </a>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="project-tile">
+      <a href="https://github.com/mrjaketomlinson/productLandingPage/blob/master/productLandingPage.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/mrjaketomlinson/productLandingPage/master/landing.jpg" class="project-pic" alt="product landing page">
+        <h3>Product Landing Page</h3>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://github.com/mrjaketomlinson/Responsive-Web-Design/blob/master/technicalDocumentationPage.html">
+        <img src="https://raw.githubusercontent.com/mrjaketomlinson/Responsive-Web-Design/master/technical.jpg" class="project-pic" alt="technical documentation page">
+        <h3>Technical Documentation Page</h3>
+      </a>
+    </div>
+  </div>
+  <div id="visit-git" class="button"><a href="https://github.com/mrjaketomlinson" class="button-details">Visit All Projects</a></div>
+</div>
+
+<div id="contact">
+  <h2>Let's chat!</h2>
+  <a href="https://github.com/mrjaketomlinson" target="_blank" class="contact-details">GitHub</a>
+  <a href="https://twitter.com/MrJakeTomlinson" target="_blank" class="contact-details">Twitter</a>
+  <a href="mailto:jacob.tomlinson21@gmail.com" target="_blank" class="contact-details">Email</a>
+</div>
+
+</body>
+</html>

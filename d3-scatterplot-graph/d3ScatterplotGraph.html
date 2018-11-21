@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <title>D3 Scatterplot Graph</title>
+
+    <style>
+      html, body {
+        text-align: center;
+        height: 100%;
+      }
+      /* svg {
+        background-color: blue;
+      } */
+      circle {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="title">
+        Doping in Professional Bicycle Racing
+      </div>
+      <div class="vis"></div>
+    </div>
+
+    <script>
+      let req = new XMLHttpRequest();
+      req.open("GET", "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json", true);
+      req.send();
+      req.onload = function() {
+        const json = JSON.parse(req.responseText);
+
+        // Manipulate data
+        var year;
+        var parsedTime;
+        json.forEach((d) => {
+          year = d.Year;
+          var parsedTime = d.Time.split(':');
+          d.Time = new Date(Date.UTC(1970, 0, 1, 0, parsedTime[0], parsedTime[1]));
+        });
+
+        // Set svg boundaries
+        const margin = {top: 20, right: 20, bottom: 50, left: 70};
+        const w = 1000 - margin.left - margin.right;
+        const h = 800 - margin.top - margin.bottom;
+
+        // Set min and max X values
+        const minX = d3.min(json, (d) => (d.Year - 1));
+        const maxX = d3.max(json, (d) => (d.Year + 1));
+
+        // Set x scale
+        const xScale = d3.scaleTime()
+                        .domain([new Date(minX.toString()), new Date(maxX.toString())])
+                        .range([90, w]);
+        // Set y scale
+        const yScale = d3.scaleLinear()
+                        .domain(d3.extent(json, (d) => d.Time))
+                        .range([h, 70]);
+
+        let color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        // Create svg
+        const svg = d3.select(".vis")
+          .append('svg')
+            .attr('width', w + margin.left + margin.right)
+            .attr('height', h + margin.top + margin.bottom);
+
+        // Create tooltip
+        let tooltip = d3.select('body')
+          .append('div')
+          .attr('class', 'tooltip')
+          .attr('id', 'tooltip')
+          .style('opacity', 0);
+
+        // Append circles
+        svg.selectAll('circle')
+          .data(json)
+          .enter().append('circle')
+            .attr('class', 'dot')
+            .attr('data-legend', (d) => {
+              if (d.Doping !== "") {
+                return "Riders with Doping Allegations";
+              } else {
+                return "No Doping Allegations";
+              }
+            })
+            .attr('data-xvalue', (d) => d.Year)
+            .attr('data-yvalue', (d) => (d.Time).toISOString())
+            .attr('cy', (d) => yScale(d.Time))
+            .attr('cx', (d) => xScale(new Date((d.Year).toString())))
+            .attr('r', (d) => 5)
+            .style("fill", (d) => color(d.Doping !== ""))
+            .on('mouseover', (d) => {
+              tooltip.transition()
+                .duration(200)
+                .style('opacity', 0.9)
+                .attr('data-year', d.Year);
+              tooltip.html(`${ d.Name } (${ d.Nationality }) <br />
+                            Year: ${ d.Year }, Time: ${ timeFormat(d.Time) }`)
+                .style('left', (d3.event.pageX) + 'px')
+                .style('top', (d3.event.pageY) + 'px')
+            })
+            .on('mouseout', (d) => {
+              tooltip.transition()
+                .duration(500)
+                .style('opacity', 0);
+            });
+
+        // Append x axis
+        svg.append('g')
+          .attr('id', 'x-axis')
+          .attr('transform', 'translate(0,' + h + ')')
+          .call(d3.axisBottom(xScale));
+        // Append x axis label
+        svg.append('text')
+          .attr('transform', 'translate(' + (w/2) + ',' + (h + margin.top + 20) + ')')
+          .style('text-anchor', 'middle')
+          .text("Year");
+
+        var timeFormat = d3.timeFormat("%M:%S");
+
+        // Append y axis
+        svg.append('g')
+          .attr('id', 'y-axis')
+          .attr('transform', 'translate(' + (margin.right + margin.left) + ', 0)')
+          .call(d3.axisLeft(yScale).tickFormat(timeFormat));
+        // Append y axis label
+        svg.append('text')
+          .attr('transform', 'rotate(-90)')
+          .attr('y', 0)
+          .attr('x', 0 - (h/2))
+          .attr('dy', '1em')
+          .style('text-anchor', 'middle')
+          .text('Minutes:Seconds');
+
+        // Create/Append legend
+        var legend = svg.selectAll(".legend")
+          .data(color.domain())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("id", "legend")
+          .attr("transform", (d, i) => "translate(0," + (h/2 - i * 20) + ")");
+
+        legend.append("rect")
+          .attr("x", w - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", w - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text((d) => {
+            if (d) {
+              return "Riders with Doping Allegations";
+            } else {
+              return "No Doping Allegations";
+            }
+          });
+      }
+    </script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

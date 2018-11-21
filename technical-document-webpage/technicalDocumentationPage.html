@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Web Design</title>
+  <style>
+  .container {
+    display: grid;
+    max-width: 100%;
+    max-height: 100%;
+    grid-template-rows: 98px auto;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+      "header header"
+      "nav main";
+    grid-gap: 10px;
+  }
+
+  /* HEADER */
+  .header {
+    grid-area: header;
+    background-color: #000;
+    padding: 10px;
+    align-self: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: -10px;
+    z-index: 2;
+  }
+  h1 {
+    color: #FFF;
+    font-size: 35px
+  }
+
+  /* NAV BAR */
+  .nav {
+    grid-area: nav;
+    border-right: 2px solid;
+    border-color: gray;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 119px;
+    min-width: 200px;
+    z-index: 1;
+  }
+  nav#navbar.nav ul li {
+    list-style-type: none;
+    border: 1px solid;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-color: gray;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 25px;
+    position: relative;
+    width: 100%;
+    left: -50px;
+  }
+  nav#navbar.nav header {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    grid-area: main;
+    padding: 10px;
+    position: absolute;
+    margin: 125px 0 0 400px;
+    display: block;
+    z-index: 1;
+  }
+  html, body {
+    font-family: Garamond, sans-serif;
+    color: #000;
+    background-color: #FFFFFF;
+    line-height: 1.5;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  header {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
+  code {
+    font-family: monospace;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: red;
+    padding: 0;
+    font-size: 16px;
+  }
+  blockquote {
+    font-family: monospace;
+    margin: 0;
+    background-color: lightgray;
+    color: red;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 0;
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header {
+      background-color: #000;
+      padding: 10px;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 25px;
+    }
+
+    .nav {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      background: #FFF;
+      position: fixed;
+      top: 79px;
+      left: 0;
+      z-index: 2;
+    }
+    nav#navbar.nav ul li {
+      list-style-type: none;
+      border: 1px solid;
+      border-bottom-width: 0;
+      border-right-width: 0;
+      border-color: gray;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 10px;
+      padding-left: 20px;
+    }
+    nav#navbar.nav header {
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .main {
+      padding: 5px;
+      z-index: 1;
+      width: 100%;
+      margin: auto;
+      position: absolute;
+      top: 400px
+    }
+    html, body {
+      font-family: Garamond, sans-serif;
+      color: #000;
+      background-color: #FFFFFF;
+      line-height: 1.0;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    header {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 15px;
+    }
+    p {
+      font-size: 12px;
+    }
+    code {
+      font-family: monospace;
+      background-color: lightgray;
+      border: 1px solid lightgray;
+      color: red;
+      padding: 0;
+      font-size: 12px;
+    }
+    blockquote {
+      font-family: monospace;
+      margin: 0;
+      background-color: lightgray;
+      color: red;
+      font-size: 12px;
+      width: 100%;
+      border: 1px solid lightgray;
+      padding: 0;
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Responsive Web Design: Technical Documentation Page</h1>
+  </div>
+  <nav id="navbar" class="nav">
+    <header>HTML & CSS</header>
+    <ul>
+      <li><a class="nav-link" href="#Basic_HTML_and_HTML5">Basic HTML and HTML5</a></li>
+      <li><a class="nav-link" href="#Basic_CSS">Basic CSS</a></li>
+      <li><a class="nav-link" href="#Applied_Visual_Design">Applied Visual Design</a></li>
+      <li><a class="nav-link" href="#Applied_Accessibility">Applied Accessibility</a></li>
+      <li><a class="nav-link" href="#Responsive_Web_Design_Principles">Responsive Web Design Principles</a></li>
+      <li><a class="nav-link" href="#CSS_Flexbox">CSS Flexbox</a></li>
+      <li><a class="nav-link" href="#CSS_Grid">CSS Grid</a></li>
+      <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc" class="main">
+    <section class="main-section" id="Basic_HTML_and_HTML5">
+      <header id="basic_html">Basic HTML and HTML5</header>
+      <h4>Say Hello to HTML Elements</h4>
+      <p>Most HTML elements have an opening tag and a closing tag. Opening tags look like this:</p>
+      <p><code>&lt;h1&gt;</code></p>
+      <p>Closing tags look like this:</p>
+      <p><code>&lt;/h1&gt;</code></p>
+      <p>The only difference between opening and closing tags is the forward slash after the opening bracket of a closing tag. So, for example, our first header could be:</p>
+      <p><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code></p>
+      <p>And this, in HTML, would create an output of "Hello World!"</p>
+
+      <h4>Headline with the h2 Element</h4>
+      <p>The <code>h2</code> element you will be adding in this step will add a level two heading to the web page.</p>
+      <p>This element tells the browser about the structure of your website. <code>h1</code> elements are often used for main headings, while <code>h2</code> elements are generally used for subheadings. There are also <code>h3</code>, <code>h4</code>, <code>h5</code> and <code>h6</code> elements to indicate different levels of subheadings.</p>
+
+      <h4>Inform with the Paragraph Element</h4>
+      <p><code>p</code> elements are the preferred element for paragraph text on websites. <code>p</code> is short for "paragraph".</p>
+      <p>You can create a paragraph element like this:</p>
+      <p><code>&lt;p&gt;I'm a p tag!&lt;/p&gt;</code></p>
+
+      <h4>Comment out HTML</h4>
+      <p>When writing HTML, or any coding language for that matter, comments are important. They allow you to write down thoughts, notes, or anything else without it affecting your code. You use <code>&lt;!--</code> to start a comment and <code>--&gt;</code> to end a comment. Thus, a comment would look like this:</p>
+      <p><code>&lt;!-- I'm a comment! --&gt;</code></p>
+
+      <h4>Introduction to HTML5 Elements</h4>
+      <p>HTML5 introduces more descriptive HTML tags. These include <code>header</code>, <code>footer</code>, <code>nav</code>, <code>video</code>, <code>article</code>, <code>section</code> and others.</p>
+      <p>These tags make your HTML easier to read, and also help with Search Engine Optimization (SEO) and accessibility.</p>
+      <p>The <code>main</code> HTML5 tag helps search engines and other developers find the main content of your page.</p>
+
+      <h4>Add Images to Your Website</h4>
+      <p>You can add images to your website by using the img element, and point to a specific image's URL using the src attribute. An example of this would be: </p>
+      <p><code>&lt;img src="https://www.your-image-source.com/your-image.jpg"&gt;</code></p>
+      <p>Note that <code>img</code> elements are self-closing.</p>
+      <p>All <code>img</code> elements must have an <code>alt</code> attribute. The text inside an <code>alt</code> attribute is used for screen readers to improve accessibility and is displayed if the image fails to load.</p>
+      <p>Note: If the image is purely decorative, using an empty alt attribute is a best practice. Ideally the alt attribute should not contain special characters unless needed.</p>
+
+      <h4>Link with Anchor Elements</h4>
+      <p>You can use <code>anchor</code> elements to link to content outside of your web page.</p>
+      <p><code>anchor</code> elements need a destination web address called an <code>href</code> attribute. They also need anchor text. Here's an example:</p>
+      <p><code>&lt;a href="https://freecodecamp.org"&gt;this links to freecodecamp.org&lt;/a&gt;</code></p>
+      <p>Then your browser will display the text <em>"this links to freecodecamp.org"</em> as a link you can click. And that link will take you to the web address <em>https://www.freecodecamp.org.</em></p>
+      <p>Anchor elements can also be used to create internal links to jump to different sections within a webpage.</p>
+      <p>To create an internal link, you assign a link's <code>href</code> attribute to a hash symbol <code>#</code> plus the value of the <code>id</code> attribute for the element that you want to internally link to, usually further down the page. You then need to add the same <code>id</code> attribute to the element you are linking to. An <code>id</code> is an attribute that uniquely describes an element.</p>
+      <p>Below is an example of an internal anchor link and its target element:</p>
+      <div><blockquote>&lt;a href="#contacts-header"&gt;Contacts&lt;/a&gt; <br>
+        ... <br>
+        &lt;h2 id="contacts-header"&gt;Contacts&lt;/h2&gt;</blockquote></div>
+      <p>When users click the Contacts link, they'll be taken to the section of the webpage with the Contacts header element.</p>
+      <p>You can also nest links within other text elements.</p>
+      <p><code>Here's a &lt;a target="_blank" href="http://freecodecamp.org"&gt; link to freecodecamp.org&lt;/a&gt; for you to follow.</code></p>
+      <p>Let's break down the example:</p>
+      <p>Normal text is wrapped in the <code>p</code> element:</p>
+      <p><code>&lt;p&gt; Here's a ... for you to follow. &lt;/p&gt;</code></p>
+      <p>Next is the anchor element <code>&lt;a&gt;</code> (which requires a closing tag <code>&lt;/a&gt;</code>):</p>
+      <p><code>&lt;a&gt; ... &lt;/a&gt;</code></p>
+      <p><code>target</code> is an anchor tag attribute that specifies where to open the link and the value <code>"_blank"</code> specifies to open the link in a new tab.</p>
+      <p><code>href</code> is an anchor tag attribute that contains the URL address of the link:</p>
+      <p><code>&lt;a href="http://freecodecamp.org"&gt; ... &lt;/a&gt;</code></p>
+      <p>The text, <em>"link to freecodecamp.org"</em>, within the anchor element called <code>anchor text</code>, will display a link to click:</p>
+      <p><code>&lt;a href=" ... "&gt;link to freecodecamp.org&lt;/a&gt;</code></p>
+      <p>The final output of the example will look like this:</p>
+      <p>Here's a link to <a href="http://www.freecodecamp.org" target="_blank">freecodecamp.org</a> for you to follow.</p>
+      <p>Sometimes you want to add a elements to your website before you know where they will link. This is also handy when you're changing the behavior of a link using JavaScript.</p>
+      <p>To do this, replace the <code>href</code> attribute with a <code>#</code> so that within the <code>anchor</code> attribute is: <code>href="#"</code></p>
+      <p>You can make elements into links by nesting them within an a element. You can, for example, add a link to an image. Here's an example:</p>
+      <p><code>&lt;a href="#"&gt;&lt;img src="https://bit.ly/fcc-running-cats" alt="Three kittens running towards the camera."&gt;&lt;/a&gt;</code></p>
+
+      <h4>Create Lists</h4>
+      <p>HTML has a special element for creating unordered lists, or bullet point style lists. Unordered lists start with an opening <code>&lt;ul&gt;</code> element, followed by any number of <code>&lt;li&gt;</code> elements. Finally, unordered lists close with a <code>&lt;/ul&gt;</code></p>
+      <p>For example:</p>
+      <div><blockquote>
+        &lt;ul&gt; <br>
+          &nbsp;&nbsp;&lt;li&gt;milk&lt;/li&gt; <br>
+          &nbsp;&nbsp;&lt;li&gt;cheese&lt;/li&gt; <br>
+        &lt;/ul&gt;
+      </blockquote></div>
+      <p>would create a bullet point style list of "milk" and "cheese".</p>
+      <p>HTML has another special element for creating ordered lists, or numbered lists. Ordered lists start with an opening <code>&lt;ol&gt;</code> element, followed by any number of <code>&lt;li&gt;</code> elements. Finally, ordered lists close with a <code>&lt;/ol&gt;</code></p>
+      <p>For example:</p>
+      <div><blockquote>
+        &lt;ol&gt; <br>
+          &nbsp;&nbsp;&lt;li&gt;Garfield&lt;/li&gt; <br>
+          &nbsp;&nbsp;&lt;li&gt;Sylvester&lt;/li&gt; <br>
+        &lt;/ol&gt;
+      </blockquote></div>
+      <p>would create a numbered list of "Garfield" and "Sylvester".</p>
+
+      <h4>Form Elements</h4>
+      <p>Now let's create a web form. Input elements are a convenient way to get input from your user.</p>
+      <p>You can create a text input like this:</p>
+      <p><code>&lt;input type="text"&gt;</code></p>
+      <p>Note that input elements are self-closing.</p>
+      <p>Placeholder text is what is displayed in your input element before your user has inputted anything.</p>
+      <p>You can create placeholder text like so:</p>
+      <p><code>&lt;input type="text" placeholder="this is placeholder text"&gt;</code></p>
+      <p>You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your <code>form</code> element.</p>
+      <p>For example:</p>
+      <p><code>&lt;form action="/url-where-you-want-to-submit-form-data"&gt;&lt;/form&gt;&lt;/p&gt;</code></p>
+      <p>Within the form element you can add things like the text field, radio buttons, checkboxes, and a submit button.</p>
+      <p>Now how do we add a submit button? Clicking this button will send the data from your form to the URL you specified with your form's action attribute.</p>
+      <p>Here's an example submit button:</p>
+      <p><code>&lt;button type="submit"&gt;this button submits the form&lt;/button&gt;</code></p>
+      <p>The text within the button element is what will show up on the submit button.</p>
+      <p>You can require specific form fields so that your user will not be able to submit your form until he or she has filled them out.</p>
+      <p>For example, if you wanted to make a text input field required, you can just add the attribute <code>required</code> within your <code>input</code> element, like this: <code>&lt;input type="text" required&gt;</code></p>
+      <p>You can use radio buttons for questions where you want the user to only give you one answer out of multiple options. Radio buttons are a type of <code>input</code>.</p>
+      <p>Each of your radio buttons can be nested within its own <code>label</code> element. By wrapping an <code>input</code> element inside of a <code>label</code> element it will automatically associate the radio button input with the label element surrounding it.</p>
+      <p>All related radio buttons should have the same <code>name</code> attribute to create a radio button group. By creating a radio group, selecting any single radio button will automatically deselect the other buttons within the same group ensuring only one answer is provided by the user.</p>
+      <p>Here's an example of a radio button:</p>
+      <div><blockquote>
+        &lt;label&gt; <br>
+          &nbsp;&lt;input type="radio" name="indoor-outdoor"&gt;Indoor <br>
+        &lt;/label&gt;
+      </blockquote></div>
+      <p>It is considered best practice to set a <code>for</code> attribute on the <code>label</code> element, with a value that matches the value of the <code>id</code> attribute of the input element. This allows assistive technologies to create a linked relationship between the label and the child <code>input</code> element. For example:</p>
+      <div><blockquote>
+        &lt;label for="indoor"&gt;
+          &nbsp;&lt;input id="indoor" type="radio" name="indoor-outdoor"&gt;Indoor
+        &lt;/label&gt;&lt;/p&gt;
+      </blockquote></div>
+      <p>Forms commonly use checkboxes for questions that may have more than one answer. Checkboxes are a type of <code>input</code>. Each of your checkboxes can be nested within its own <code>label</code> element. By wrapping an <code>input</code> element inside of a <code>label</code> element it will automatically associate the checkbox input with the label element surrounding it.</p>
+      <p>All related checkbox inputs should have the same <code>name</code> attribute.</p>
+      <p>It is considered best practice to explicitly define the relationship between a checkbox <code>input</code> and its corresponding <code>label</code> by setting the <code>for</code> attribute on the <code>label</code> element to match the <code>id</code> attribute of the associated <code>input</code> element.</p>
+      <p>Here's an example of a checkbox:</p>
+      <p><code>&lt;label for="loving"&gt;&lt;input id="loving" type="checkbox" name="personality"&gt; Loving&lt;/label&gt;</code></p>
+      <p>You can set a checkbox or radio button to be checked by default using the <code>checked</code> attribute. To do this, just add the word "checked" to the inside of an <code>input</code> element. For example:</p>
+      <p><code>&lt;input type="radio" name="test-name" checked&gt;</code></p>
+
+      <h4>Nest Many Elements within a Single div Element</h4>
+      <p>The <code>div</code> element, also known as a division element, is a general purpose container for other elements.</p>
+      <p>The <code>div</code> element is probably the most commonly used HTML element of all.</p>
+      <p>Just like any other non-self-closing element, you can open a <code>div</code> element with <code>&lt;div&gt;</code> and close it on another line with <code>&lt;/div&gt;</code>.</p>
+
+      <h4>Define an HTML Document</h4>
+      <p>There are a few elements that give overall structure to your page, and should be included in every HTML document. At the top of your document, you need to tell the browser which version of HTML your page is using. HTML is an evolving language, and is updated regularly. Most major browsers support the latest specification, which is HTML5. However, older web pages may use previous versions of the language.</p>
+      <p>You tell the browser this information by adding the <code>&lt;!DOCTYPE ...&gt;</code> tag on the first line, where the "<code>...</code>" part is the version of HTML. For HTML5, you use <code>&lt;!DOCTYPE html&gt;</code>.</p>
+      <p>The <code>!</code> and uppercase <code>DOCTYPE</code> is important, especially for older browsers. The <code>html</code> is not case sensitive.</p>
+      <p>Next, the rest of your HTML code needs to be wrapped in <code>html</code> tags. The opening <code>&lt;html&gt;</code> goes directly below the <code>&lt;!DOCTYPE html&gt;</code> line, and the closing <code>&lt;/html&gt;</code> goes at the end of the page.</p>
+      <p>Here's an example of the page structure:</p>
+      <div><blockquote>
+        &lt;!DOCTYPE html&gt; <br>
+        &lt;html&gt; <br>
+        &nbsp;&lt;!-- Your HTML code goes here --&gt; <br>
+        &lt;/html&gt;
+      </blockquote></div>
+      <p>You can add another level of organization in your HTML document within the <code>html</code> tags with the <code>head</code> and <code>body</code> elements. Any markup with information about your page would go into the <code>head</code> tag. Then any markup with the content of the page (what displays for a user) would go into the <code>body</code> tag.</p>
+      <p>Metadata elements, such as <code>link</code>, <code>meta</code>, <code>title</code>, and <code>style</code>, typically go inside the <code>head</code> element.</p>
+      <p>Here's an example of a page's layout:</p>
+      <div><blockquote>
+        &lt;!DOCTYPE html&gt; <br>
+        &lt;html&gt; <br>
+          &lt;head&gt; <br>
+          &nbsp;&lt;!-- metadata elements --&gt; <br>
+          &lt;/head&gt; <br>
+        &lt;body&gt; <br>
+          &nbsp;&lt;!-- page contents --&gt; <br>
+        &lt;/body&gt; <br>
+        &lt;/html&gt;
+      </blockquote></div>
+    </section>
+
+    <section class="main-section" id="Basic_CSS">
+      <header id="basic-css">Basic CSS</header>
+      <h4>Use CSS Selectors to Style Elements</h4>
+      <p>With CSS, there are hundreds of CSS properties that you can use to change the way an element looks on your page. When you enter <code>&lt;h2 style="color: red"&gt;Some Text&lt;/h2&gt;</code>, you were styling that individual <code>h2</code> element with inline CSS, which stands for Cascading Style Sheets.</p>
+      <p>That's one way to specify the style of an element, but there's a better way to apply CSS. At the top of your code, create a style block like this:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+          ... <br>
+        &lt;/style&gt;
+      </blockquote></div>
+      <p>Inside that style block, you can create a CSS selector for all <code>h2</code> elements. For example, if you wanted all <code>h2</code> elements to be red, you would add a style rule that looks like this:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+          &nbsp;h2 {color: red;} <br>
+        &lt;/style&gt;
+      </blockquote></div>
+      <p>Note that it's important to have both opening and closing curly braces (<code>{</code> and <code>}</code>) around each element's style rule(s). You also need to make sure that your element's style definition is between the opening and closing style tags. Finally, be sure to add a semicolon to the end of each of your element's style rules.</p>
+
+      <h4>Use a CSS Class to Style and Element</h4>
+      <p>Classes are reusable styles that can be added to HTML elements. Here's an example CSS class declaration:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+          &nbsp;.blue-text { <br>
+            &nbsp;&nbsp;color: blue; <br>
+          &nbsp;} <br>
+        &lt;/style&gt;
+      </blockquote></div>
+      <p>You can see that we've created a CSS class called blue-text within the <code>&lt;style&gt;</code> tag. You can apply a class to an HTML element like this:</p>
+      <p><code>&lt;h2 class="blue-text"&gt;Some Text&lt;/h2&gt;</code></p>
+      <p>Note that in your CSS style element, class names start with a period. In your HTML elements' class attribute, the class name does not include the period.</p>
+      <p>You can set an element's background color with the <code>background-color</code> property. For example, if you wanted an element's background color to be green, you'd put this within your style element:</p>
+      <div><blockquote>
+        .green-background {
+        &nbsp;background-color: green;
+        }
+      </blockquote></div>
+
+      <h4>Fonts</h4>
+      <p>Font size is controlled by the font-size CSS property, like this:</p>
+      <div><blockquote>
+        h1 { <br>
+        &nbsp;font-size: 30px; <br>
+        }
+      </blockquote></div>
+      <p>You can set which font an element should use, by using the <code>font-family</code> property. For example, if you wanted to set your <code>h2</code> element's font to sans-serif, you would use the following CSS:
+      <div><blockquote>
+        h2 { <br>
+        &nbsp;font-family: sans-serif; <br>
+        }
+      </blockquote></div>
+      <p>There are several default fonts that are available in all browsers. These generic font families include monospace, serif and sans-serif. When one font isn't available, you can tell the browser to "degrade" to another font.</p>
+      <p>For example, if you wanted an element to use the Helvetica font, but degrade to the sans-serif font when Helvetica wasn't available, you will specify it as follows:</p>
+      <div><blockquote>
+        p { <br>
+        &nbsp;font-family: Helvetica, sans-serif; <br>
+        }
+      </blockquote></div>
+      <p>Generic font family names are not case-sensitive. Also, they do not need quotes because they are CSS keywords.</p>
+
+      <h4>Using CSS with Images</h4>
+      <p>CSS has a property called <code>width</code> that controls an element's width. Just like with fonts, we'll use px (pixels) to specify the image's width. For example, if we wanted to create a CSS class called <code>larger-image</code> that gave HTML elements a width of 500 pixels, we'd use:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+        &nbsp;.larger-image { <br>
+        &nbsp;&nbsp;width: 500px; <br>
+        &nbsp;} <br>
+        &lt;/style&gt;
+      </blockquote></div>
+      <p>CSS borders, which can go around elements, have properties like <code>style</code>, <code>color</code> and <code>width</code>. For example, if we wanted to create a red, 5 pixel border around an HTML element, we could use this class:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>.
+        &nbsp;thin-red-border { <br>
+        &nbsp;&nbsp;border-color: red; <br>
+        &nbsp;&nbsp;border-width: 5px; <br>
+        &nbsp;&nbsp;border-style: solid; <br>
+        &nbsp;}
+        &lt;/style&gt;
+      </blockquote></div>
+      <p>By default, the edge of the border is sharp. We can round out those corners with a CSS property called <code>border-radius</code>. You can specify border-radius with px, %, etc. A <code>border-radius</code> of 50% gives you a circle.</p>
+
+      <h4>The id Element</h4>
+      <p>In addition to classes, each HTML element can also have an <code>id</code> attribute.</p>
+      <p>There are several benefits to using <code>id</code> attributes: You can use an <code>id</code> to style a single element (and you can use them to select and modify specific elements with JavaScript).</p>
+      <p><code>id</code> attributes should be unique. Browsers won't enforce this, but it is a widely agreed upon best practice. So please don't give more than one element the same <code>id</code> attribute. Here's an example of how you give your <code>h2</code> element the id of <code>cat-photo-app</code>: <code>&lt;h2 id="cat-photo-app"&gt;</code></p>
+      <p>One cool thing about <code>id</code> attributes is that, like classes, you can style them using CSS. However, an <code>id</code> is not reusable and should only be applied to one element. An <code>id</code> also has a higher specificity (importance) than a class so if both are applied to the same element and have conflicting styles, the styles of the id will be applied.</p>
+      <p>Here's an example of how you can take your element with the <code>id</code> attribute of <code>cat-photo-element</code> and give it the background color of green. In your style element:</p>
+      <div><blockquote>
+        #cat-photo-element { <br>
+        &nbsp;background-color: green; <br>
+        }
+      </blockquote></div>
+      <p>Note that inside your style element, you always reference classes by putting a <code>.</code> in front of their names. You always reference ids by putting a <code>#</code> in front of their names.</p>
+
+      <h4>Padding and Margin</h4>
+      <p>You may have already noticed this, but all HTML elements are essentially little rectangles. Three important properties control the space that surrounds each HTML element: <code>padding</code>, <code>margin</code>, and <code>border</code>.</p>
+      <p>An element's <code>padding</code> controls the amount of space between the element's content and its border.</p>
+      <p>When you increase the padding, it will increase the distance (padding) between the text and the border around it.</p>
+      <p>An element's <code>margin</code> controls the amount of space between an element's border and surrounding elements. When you increase the <code>margin</code>, it will increase the distance between its border and surrounding elements.</p>
+      <p>If you set an element's <code>margin</code> to a negative value, the element will grow larger.</p>
+      <p>Sometimes you will want to customize an element so that it has different amounts of <code>padding</code> on each of its sides. CSS allows you to control the <code>padding</code> of all four individual sides of an element with the <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> properties.</p>
+      <p>Sometimes you will want to customize an element so that it has a different <code>margin</code> on each of its sides. CSS allows you to control the <code>margin</code> of all four individual sides of an element with the <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code> properties.</p>
+      <p>Instead of specifying an element's <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> (or margin directions) properties individually, you can specify them all in one line, like this:</p>
+      <p><code>padding: 10px 20px 10px 20px;</code></p>
+      <p>These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific padding (or margin) instructions.</p>
+
+      <h4>Use Attribute Selectors to Style Elements</h4>
+      <p>You have been giving <code>id</code> or <code>class</code> attributes to elements that you wish to specifically style. These are known as ID and class selectors. There are other CSS Selectors you can use to select custom groups of elements to style.</p>
+      <p>You can also use an attribute selector to style elements, <code>[attr=value]</code>. This selector matches and styles elements with a specific attribute value. For example, the below code changes the margins of all elements with the attribute type and a corresponding value of radio:</p>
+      <div><blockquote>
+        [type='radio'] { <br>
+        &nbsp;margin: 20px 0px 20px 0px; <br>
+        }
+      </blockquote></div>
+
+      <h4>Absolute versus Relative units</h4>
+      <p>CSS has a number of different length unit options that you can use.</p>
+      <p>The two main types of length units are absolute and relative. Absolute units tie to physical units of length. For example, <code>in</code> and <code>mm</code> refer to inches and millimeters, respectively. Absolute length units approximate the actual measurement on a screen, but there are some differences depending on a screen's resolution.</p>
+      <p>Relative units, such as <code>em</code> or <code>rem</code>, are relative to another length value. For example, <code>em</code> is based on the size of an element's font. If you use it to set the <code>font-size</code> property itself, it's relative to the parent's <code>font-size</code>.</p>
+      <p>Note: There are several relative unit options that are tied to the size of the viewport. They are covered in the Responsive Web Design Principles section.</p>
+
+      <h4>Style the HTML Body Element</h4>
+      <p>Now let's start fresh and talk about CSS inheritance. Every HTML page has a body element.</p>
+      <p>We can prove that the body element exists here by giving it a <code>background-color</code> of black. We can do this by adding the following to our style element:</p>
+      <div><blockquote>
+        body { <br>
+        &nbsp;background-color: black; <br>
+        }
+      </blockquote></div>
+      <p>Sometimes your HTML elements will receive multiple styles that conflict with one another. For example, your <code>h1</code> element can't be both green and pink at the same time.</p>
+      <ul>
+        <li>CSS class overrides the <code>body</code> element's CSS.</li>
+        <li>The order of the <code>class</code> declarations in <code>&lt;style&gt;</code> section matters. The second declaration will always take precedence over the first.</li>
+        <li><code>id</code> attributes override class attributes.</li>
+        <li>Inline styles (i.e., <code>&lt;hi style="color: red"&gt;</code>) override <code>id</code> attributes.</li>
+        <li>And the most powerful override of all: add the keyword <code>!important</code> to your element's declaration. E.g., <code>color: red !important</code></li>
+      </ul>
+
+      <h4>Colors</h4>
+      <p>Did you know there are other ways to represent colors in CSS? One of these ways is called hexadecimal code, or hex code for short.</p>
+      <p>We usually use decimals, or base 10 numbers, which use the symbols 0 to 9 for each digit. Hexadecimals (or hex) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in hexadecimal, giving us 16 total possible values. You can find more information about hexadecimal numbers here.</p>
+      <p>In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, <code>#000000</code> is black and is also the lowest possible value.</p>
+      <div><blockquote>
+        body { <br>
+        &nbsp;color: #000000; <br>
+        }
+      </blockquote></div>
+      <p>From these three pure colors (red, green, and blue), we can vary the amounts of each to create over 16 million other colors! For example, orange is pure red, mixed with some green, and no blue. In hex code, this translates to being <code>#FFA500</code>.</p>
+      <p>The digit 0 is the lowest number in hex code, and represents a complete absence of color. The digit F is the highest number in hex code, and represents the maximum possible brightness.</p>
+      <p>Many people feel overwhelmed by the possibilities of more than 16 million colors. And it's difficult to remember hex code. Fortunately, you can shorten it.</p>
+      <p>For example, red's hex code <code>#FF0000</code> can be shortened to <code>#F00</code>. This shortened form gives one digit for red, one digit for green, and one digit for blue.</p>
+      <p>This reduces the total number of possible colors to around 4,000. But browsers will interpret <code>#FF0000</code> and <code>#F00</code> as exactly the same color.</p>
+      <p>Another way you can represent colors in CSS is by using RGB values. The RGB value for black looks like this: <code>rgb(0, 0, 0)</code>.</p>
+      <p>The RGB value for white looks like this: <code>rgb(255, 255, 255)</code>.</p>
+      <p>Instead of using six hexadecimal digits like you do with hex code, with RGB you specify the brightness of each color with a number between 0 and 255. If you do the math, the two digits for one color equal 16 times 16, which gives us 256 total values. So RGB, which starts counting from zero, has the exact same number of possible values as hex code.</p>
+      <p>Here's an example of how you'd change the body background to orange using its RGB code.</p>
+      <div><blockquote>
+        body { <br>
+        &nbsp;background-color: rgb(255, 165, 0); <br>
+        }
+      </blockquote></div>
+
+      <h4>CSS Variables</h4>
+      <p>CSS Variables are a powerful way to change many CSS style properties at once by changing only one value.</p>
+      <p>To create a CSS Variable, you just need to give it a name with two dashes in front of it and assign it a value like this: <code>--penguin-skin: gray;</code>.</p>
+      <p>This will create a variable named <code>--penguin-skin</code> and assign it the value of gray. Now you can use that variable elsewhere in your CSS to change the value of other elements to gray.</p>
+      <p>After you create your variable, you can assign its value to other CSS properties by referencing the name you gave it.</p>
+      <p><code>background: var(--penguin-skin);</code></p>
+      <p>This will change the background of whatever element you are targeting to gray because that is the value of the <code>--penguin-skin</code> variable. Note that styles will not be applied unless the variable names are an exact match.</p>
+
+      <h4>Use a media query to Change a Variable</h4>
+      <p>CSS Variables can simplify the way you use media queries.</p>
+      <p>For instance, when your screen is smaller or larger than your media query break point, you can change the value of a variable, and it will apply its style wherever it is used.</p>
+      <p>Media queries look like this:</p>
+      <div><blockquote>
+        @media (max-width: 350px) { <br>
+        &nbsp;:root { <br>
+        &nbsp;&nbsp;--penguin-size: 200px; <br>
+        &nbsp;&nbsp;--penguin-skin: black; <br>
+        &nbsp;} <br>
+        }
+      </blockquote></div>
+      <p>More on media queries later. For now though, the query here is telling the HTML to change the two penguin variables specified to change their shape and color once the window becomes a certain size.</p>
+    </section>
+
+    <section class="main-section" id="Applied_Visual_Design">
+      <header id="applied-design">Applied Visual Design</header>
+      <h4>Text Properties</h4>
+      <p>Text is often a large part of web content. CSS has several options for how to align it with the <code>text-align</code> property.</p>
+      <ul>
+        <li><code>text-align: justify;</code> causes all lines of text except the last line to meet the left and right edges of the line box.</li>
+        <li><code>text-align: center;</code> centers the text</li>
+        <li><code>text-align: right;</code> right-aligns the text</li>
+        <li><code>text-align: left;</code> (the default) left-aligns the text.</li>
+      </ul>
+      <p>To make text bold, you can use the <code>strong</code> tag. This is often used to draw attention to text and symbolize that it is important. With the <code>strong</code> tag, the browser applies the CSS of <code>font-weight: bold;</code> to the element.</p>
+      <p>To underline text, you can use the <code>u</code> tag. This is often used to signify that a section of text is important, or something to remember. With the <code>u</code> tag, the browser applies the CSS of <code>text-decoration: underline;</code> to the element.</p>
+      <p>To emphasize text, you can use the <code>em</code> tag. This displays text as italicized, as the browser applies the CSS of <code>font-style: italic;</code> to the element.</p>
+      <p>To strikethrough text, which is when a horizontal line cuts across the characters, you can use the <code>del</code> tag. It shows that a section of text is no longer valid. With the <code>del</code> tag, the browser applies the CSS of <code>text-decoration: line-through;</code> to the element.</p>
+      <p>You can use the <code>hr</code> tag to add a horizontal line across the width of its containing element. This can be used to define a change in topic or to visually separate groups of content.</p>
+      <p>Instead of adjusting your overall background or the color of the text to make the foreground easily readable, you can add a <code>background-color</code> to the element holding the text you want to emphasize. This challenge uses <code>rgba()</code> instead of hex codes or normal <code>rgb()</code>. <code>rgba</code> stands for:</p>
+      <ul>
+        <li>r = red</li>
+        <li>g = green</li>
+        <li>b = blue</li>
+        <li>a = alpha/level of opacity</li>
+      </ul>
+      <p>The RGB values can range from 0 to 255. The alpha value can range from 1, which is fully opaque or a solid color, to 0, which is fully transparent or clear. <code>rgba()</code> is great to use in this case, as it allows you to adjust the opacity. This means you don't have to completely block out the background.</p>
+      <p>For example, <code>rgba(45, 45, 45, 0.1)</code> produces a dark gray color that is nearly transparent given the low opacity value of 0.1.</p>
+      <p>The font size of header tags (<code>h1</code> through <code>h6</code>) should generally be larger than the font size of paragraph tags. This makes it easier for the user to visually understand the layout and level of importance of everything on the page. You use the <code>font-size</code> property to adjust the size of the text in an element.</p>
+
+      <h4>Adjusting Width and Height</h4>
+      <p>You can specify the width of an element using the <code>width</code> property in CSS. Values can be given in relative length units (such as <code>em</code>), absolute length units (such as <code>px</code>), or as a percentage of its containing parent element. Here's an example that changes the width of an image to 220px:</p>
+      <div><blockquote>
+        img { <br>
+        &nbsp;width: 220px; <br>
+        }
+      </blockquote></div>
+      <p>You can specify the height of an element using the <code>height</code> property in CSS, similar to the <code>width</code> property. Here's an example that changes the height of an image to 20px:</p>
+      <div><blockquote>
+        img { <br>
+        &nbsp;height: 20px; <br>
+        }
+      </blockquote></div>
+
+      <h4>Box Shadows</h4>
+      <p>The <code>box-shadow</code> property applies one or more shadows to an element.</p>
+      <p>The <code>box-shadow</code> property takes values for <code>offset-x</code> (how far to push the shadow horizontally from the element), <code>offset-y</code> (how far to push the shadow vertically from the element), <code>blur-radius</code>, <code>spread-radius</code> and a color value, in that order. The <code>blur-radius</code> and <code>spread-radius</code> values are optional.</p>
+      <p>Here's an example of the CSS to create multiple shadows with some blur, at mostly-transparent black colors: <code>box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);</code></p>
+
+      <h4>Opacity</h4>
+      <p>The <code>opacity</code> property in CSS is used to adjust the opacity, or conversely, the transparency for an item.</p>
+      <ul>
+        <li>A value of 1 is opaque, which isn't transparent at all.</li>
+        <li>A value of 0.5 is half see-through.</li>
+        <li>A value of 0 is completely transparent.</li>
+      </ul>
+      <p>The value given will apply to the entire element, whether that's an image with some transparency, or the foreground and background colors for a block of text.</p>
+
+      <h4>Transforming Text</h4>
+      <p>The <code>text-transform</code> property in CSS is used to change the appearance of text. It's a convenient way to make sure text on a webpage appears consistently, without having to change the text content of the actual HTML elements. You can use the following values in the <code>text-transform</code> property:</p>
+      <ul>
+        <li><code>lowercase</code>: makes the entire text lowercase.</li>
+        <li><code>uppercase</code>: makes the entire text uppercase.</li>
+        <li><code>capitalize</code>: makes the first letter of every word uppercase.</li>
+        <li><code>initial</code>: uses the default value.</li>
+        <li><code>inherit</code>: uses the <code>text-transform</code> value from the parent element.</li>
+        <li><code>none</code>: uses the original text.</li>
+      </ul>
+      <p>The <code>font-size</code> property is used to specify how large the text is in a given element. This rule can be used for multiple elements to create visual consistency of text on a page. For example, setting the values for all <code>h1</code> through <code>h6</code> tags to balance the heading sizes.</p>
+      <p>The <code>font-weight</code> property sets how thick or thin characters are in a section of text. Use numbers (e.g., 800, 300, 500, etc.) to set the <code>font-weight</code>.</p>
+      <p>CSS offers the <code>line-height</code> property to change the height of each line in a block of text. As the name suggests, it changes the amount of vertical space that each line of text gets.</p>
+
+      <h4>The Hover State</h4>
+      <p>A pseudo-class is a keyword that can be added to selectors, in order to select a specific state of the element. For example, the styling of an anchor tag can be changed for its hover state using the <code>:hover</code> pseudo-class selector. Here's the CSS to change the <code>color</code> of the anchor tag to red during its hover state:</p>
+      <div><blockquote>
+        a:hover { <br>
+        &nbsp;color: red; <br>
+        }
+      </blockquote></div>
+
+      <h4>An Element's Relative Position</h4>
+      <p>CSS treats each HTML element as its own box, which is usually referred to as the <em>CSS Box Model</em>. Block-level items automatically start on a new line (think headings, paragraphs, and divs) while inline items sit within surrounding content (like images or spans). The default layout of elements in this way is called the <em>normal flow</em> of a document, but CSS offers the position property to override it.</p>
+      <p>When the position of an element is set to <code>relative</code>, it allows you to specify how CSS should move it relative to its current position in the normal flow of the page. It pairs with the CSS offset properties of <code>left</code> or <code>right</code>, and <code>top</code> or <code>bottom</code>. These say how many pixels, percentages, or ems to move the item away from where it is normally positioned.</p>
+      <p>The following example moves the paragraph 10 pixels away from the bottom:</p>
+      <div><blockquote>
+        p { <br>
+        &nbsp;position: relative; <br>
+        &nbsp;bottom: 10px; <br>
+        }
+      </blockquote></div>
+      <p>Changing an element's position to relative does not remove it from the normal flow - other elements around it still behave as if that item were in its default position.</p>
+      <p>Note: Positioning gives you a lot of flexibility and power over the visual layout of a page. It's good to remember that no matter the position of elements, the underlying HTML markup should be organized and make sense when read from top to bottom. This is how users with visual impairments (who rely on assistive devices like screen readers) access your content.</p>
+      <p>The CSS offsets of <code>top</code> or <code>bottom</code>, and <code>left</code> or <code>right</code> tell the browser how far to offset an item relative to where it would sit in the normal flow of the document. You're offsetting an element away from a given spot, which moves the element away from the referenced side (effectively, the opposite direction). Using the <code>top</code> offset moves the element downwards. Likewise, using a <code>left</code> offset moves an item to the right.</p>
+
+      <h4>Absolute Positioning</h4>
+      <p>The next option for the CSS position property is <code>absolute</code>, which locks the element in place relative to its parent container. Unlike the <code>relative</code> position, this removes the element from the normal flow of the document, so surrounding items ignore it. The CSS offset properties (top or bottom and left or right) are used to adjust the position.</p>
+      <p>One nuance with absolute positioning is that it will be locked relative to its closest <em>positioned</em> ancestor. If you forget to add a position rule to the parent item, (this is typically done using <code>position: relative;</code>), the browser will keep looking up the chain and ultimately default to the body tag.</p>
+
+      <h4>Fixed Positioning</h4>
+      <p>The next layout scheme that CSS offers is the <code>fixed</code> position, which is a type of absolute positioning that locks an element relative to the browser window. Similar to absolute positioning, it's used with the CSS offset properties and also removes the element from the normal flow of the document. Other items no longer "realize" where it is positioned, which may require some layout adjustments elsewhere.</p>
+      <p>One key difference from the <code>absolute</code> position is that the element won't move when the user scrolls.</p>
+
+      <h4>The float Property</h4>
+      <p>The next positioning tool does not actually use <code>position</code>, but sets the <code>float</code> property of an element. Floating elements are removed from the normal flow of a document and pushed to either the <code>left</code> or <code>right</code> of their containing parent element. It's commonly used with the <code>width</code> property to specify how much horizontal space the floated element requires.</p>
+
+      <h4>The z-index Property</h4>
+      <p>When elements are positioned to overlap, the element coming later in the HTML markup will, by default, appear on the top of the other elements. However, the <code>z-index</code> property can specify the order of how elements are stacked on top of one another. It must be an integer (i.e. a whole number and not a decimal), and higher values for the <code>z-index</code> property of an element move it higher in the stack than those with lower values.</p>
+
+      <h4>Centering an Element Horizontally Using the margin Property</h4>
+      <p>Another positioning technique is to center a block element horizontally. One way to do this is to set its <code>margin</code> to a value of auto.</p>
+      <p>This method works for images, too. Images are inline elements by default, but can be changed to block elements when you set the <code>display</code> property to block.</p>
+
+      <h4>Color Properties</h4>
+      <p>Color theory and its impact on design is a deep topic and only the basics are covered in the following challenges. On a website, color can draw attention to content, evoke emotions, or create visual harmony. Using different combinations of colors can really change the look of a website, and a lot of thought can go into picking a color palette that works with your content.</p>
+      <p>The color wheel is a useful tool to visualize how colors relate to each other - it's a circle where similar hues are neighbors and different hues are farther apart. When two colors are opposite each other on the wheel, they are called complementary colors. They have the characteristic that if they are combined, they "cancel" each other out and create a gray color. However, when placed side-by-side, these colors appear more vibrant and produce a strong visual contrast.</p>
+      <p>Some examples of complementary colors with their hex codes are:</p>
+      <ul>
+        <li>red (#FF0000) and cyan (#00FFFF)</li>
+        <li>green (#00FF00) and magenta (#FF00FF)</li>
+        <li>blue (#0000FF) and yellow (#FFFF00)</li>
+      </ul>
+      <p>There are many color picking tools available online that have an option to find the complement of a color.</p>
+      <p>Computer monitors and device screens create different colors by combining amounts of red, green, and blue light. This is known as the RGB additive color model in modern color theory. Red (R), green (G), and blue (B) are called primary colors. Mixing two primary colors creates the secondary colors cyan (G + B), magenta (R + B) and yellow (R + G). These secondary colors happen to be the complement to the primary color not used in their creation, and are opposite to that primary color on the color wheel. For example, magenta is made with red and blue, and is the complement to green.</p>
+      <p>Tertiary colors are the result of combining a primary color with one of its secondary color neighbors. For example, red (primary) and yellow (secondary) make orange. This adds six more colors to a simple color wheel for a total of twelve.</p>
+      <p>There are various methods of selecting different colors that result in a harmonious combination in design. One example that can use tertiary colors is called the split-complementary color scheme. This scheme starts with a base color, then pairs it with the two colors that are adjacent to its complement. The three colors provide strong visual contrast in a design, but are more subtle than using two complementary colors.</p>
+      <p>Opposite colors on the color wheel can make each other appear more vibrant when placed side-by-side. However, the strong visual contrast can be jarring if it's overused on a website, and can sometimes make text harder to read if it's placed on a complementary-colored background. In practice, one of the colors is usually dominant and the complement is used to bring visual attention to certain content on the page.</p>
+      <p>Colors have several characteristics including hue, saturation, and lightness. CSS3 introduced the <code>hsl()</code> property as an alternative way to pick a color by directly stating these characteristics.</p>
+      <p>Hue is what people generally think of as 'color'. If you picture a spectrum of colors starting with red on the left, moving through green in the middle, and blue on right, the hue is where a color fits along this line. In <code>hsl()</code>, hue uses a color wheel concept instead of the spectrum, where the angle of the color on the circle is given as a value between 0 and 360.</p>
+      <p>Saturation is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.</p>
+      <p>Lightness is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.</p>
+      <p>Here are a few examples of using <code>hsl()</code> with fully-saturated, normal lightness colors:</p>
+      <ul>
+        <li>red:	hsl(0, 100%, 50%)</li>
+        <li>yellow:	hsl(60, 100%, 50%)</li>
+        <li>green:	hsl(120, 100%, 50%)</li>
+        <li>cyan:	hsl(180, 100%, 50%)</li>
+        <li>blue:	hsl(240, 100%, 50%)</li>
+        <li>magenta:	hsl(300, 100%, 50%)</li>
+      </ul>
+      <p>Applying a color on HTML elements is not limited to one flat hue. CSS provides the ability to use color transitions, otherwise known as gradients, on elements. This is accessed through the background property's <code>linear-gradient()</code> function. Here is the general syntax:</p>
+      <p><code>background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...);</code></p>
+      <p>The first argument specifies the direction from which color transition starts - it can be stated as a degree, where 90deg makes a vertical gradient and 45deg is angled like a backslash. The following arguments specify the order of colors used in the gradient. Example:</p>
+      <p><code>background: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));</code></p>
+      <p>The <code>repeating-linear-gradient()</code> function is very similar to <code>linear-gradient()</code> with the major difference that it repeats the specified gradient pattern. <code>repeating-linear-gradient()</code> accepts a variety of values, but for simplicity, let's work with an angle value and color stop values.</p>
+      <p>The angle value is the direction of the gradient. Color stops are like width values that mark where a transition takes place, and are given with a percentage or a number of pixels. For example:</p>
+      <div><blockquote>
+        background: repeating-linear-gradient( <br>
+        &nbsp;90deg, <br>
+        &nbsp;yellow 0px, <br>
+        &nbsp;blue 40px, <br>
+        &nbsp;green 40px, <br>
+        &nbsp;red 80px <br>
+        );
+      </blockquote></div>
+      <p>In the example, the gradient starts with the color yellow at 0 pixels which blends into the second color blue at 40 pixels away from the start. Since the next color stop is also at 40 pixels, the gradient immediately changes to the third color green, which itself blends into the fourth color value red as that is 80 pixels away from the beginning of the gradient.</p>
+      <p>For this example, it helps to think about the color stops as pairs where every two colors blend together.</p>
+      <p><code>0px [yellow -- blend -- blue] 40px [green -- blend -- red] 80px</code></p>
+      <p>If every two color stop values are the same color, the blending isn't noticeable because it's between the same color, followed by a hard transition to the next color, so you end up with stripes.</p>
+
+      <h4>Adding a Background Image</h4>
+      <p>One way to add texture and interest to a background and have it stand out more is to add a subtle pattern. The key is balance, as you don't want the background to stand out too much, and take away from the foreground. The <code>background</code> property supports the <code>url()</code> function in order to link to an image of the chosen texture or pattern. The link address is wrapped in quotes inside the parentheses.</p>
+
+      <h4>CSS Transform Properties</h4>
+      <p>To change the scale of an element, CSS has the <code>transform</code> property, along with its <code>scale()</code> function. The following code example doubles the size of all the paragraph elements on the page:</p>
+      <div><blockquote>
+        p { <br>
+        &nbsp;transform:scale(2); <br>
+        }
+      </blockquote></div>
+      <p>You can use this same property on pseudo-classes such as <code>:hover</code> as well so that when a user hovers over an image or a button, for example, it changes in size.</p>
+      <p>The next function of the <code>transform</code> property is <code>skewX()</code>, which skews the selected element along its X (horizontal) axis by a given degree. The following code skews the paragraph element by -32 degrees along the X-axis.</p>
+      <div><blockquote>
+        p { <br>
+        &nbsp;transform: skewX(-32deg); <br>
+        }
+      </blockquote></div>
+      <p>Given that the <code>skewX()</code> function skews the selected element along the X-axis by a given degree, it is no surprise that the <code>skewY()</code> property skews an element along the Y (vertical) axis.</p>
+
+      <h4>Creating a Graphic Using CSS</h4>
+      <p>By manipulating different selectors and properties, you can make interesting shapes. One of the easier ones to try is a crescent moon shape. To do this, you need to work with the <code>box-shadow</code> property that sets the shadow of an element, along with the <code>border-radius</code> property that controls the roundness of the element's corners.</p>
+      <p>In order to create a round object, the border-radius property should be set to a value of 50%. You may recall from an earlier challenge that the box-shadow property takes values for offset-x, offset-y, blur-radius, spread-radius and a color value in that order. The blur-radius and spread-radius values are optional. The following code demonstrates how to create a crescent moon shape.</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+        .center { <br>
+        &nbsp;position: absolute; <br>
+        &nbsp;margin: auto; <br>
+        &nbsp;top: 0; <br>
+        &nbsp;right: 0; <br>
+        &nbsp;bottom: 0; <br>
+        &nbsp;left: 0; <br>
+        &nbsp;width: 100px; <br>
+        &nbsp;height: 100px; <br>
+        &nbsp;background-color: transparent; <br>
+        &nbsp;border-radius: 50%; <br>
+        &nbsp;box-shadow: 25px 10px 0 0 green; <br>
+        } <br>
+        &lt;/style&gt; <br>
+        &lt;div class="center"&gt;&lt;/div&gt;
+      </blockquote></div>
+      <p>One of the most popular shapes in the world is the heart shape, and you can create it with raw CSS. But first, you need to understand the <code>:before</code> and <code>:after</code> selectors. These selectors are used to add something before or after a selected element. In the following example, a <code>:before</code> selector is used to add a rectangle to an element with the class <code>heart</code>:</p>
+      <div><blockquote>
+        .heart:before { <br>
+        &nbsp;content: ""; <br>
+        &nbsp;background-color: yellow; <br>
+        &nbsp;border-radius: 25%; <br>
+        &nbsp;position: absolute; <br>
+        &nbsp;height: 50px; <br>
+        &nbsp;width: 70px; <br>
+        &nbsp;top: -50px; <br>
+        &nbsp;left: 5px; <br>
+        }
+      </blockquote></div>
+      <p>For the <code>:before</code> and <code>:after</code> selectors to function properly, they must have a defined <code>content</code> property. It usually has content such as a photo or text. When the <code>:before</code> and <code>:after</code> selectors add shapes, the <code>content</code> property is still required, but it's set to an empty string.</p>
+      <p>In the above example, the element with the class of <code>heart</code> has a <code>:before</code> selector that produces a yellow rectangle with height and width of 50px and 70px, respectively. This rectangle has round corners due to its 25% border radius and is positioned absolutely at 5px from the left and 50px above the top of the element.</p>
+
+      <h4>CSS Animation</h4>
+      <p>To animate an element, you need to know about the animation properties and the <code>@keyframes</code> rule. The animation properties control how the animation should behave and the <code>@keyframes</code> rule controls what happens during that animation. There are eight animation properties in total. This challenge will keep it simple and cover the two most important ones first:</p>
+      <ul>
+        <li><code>animation-name</code> sets the name of the animation, which is later used by <code>@keyframes</code> to tell CSS which rules go with which animations.</li>
+        <li><code>animation-duration</code> sets the length of time for the animation.</li>
+      </ul>
+      <p><code>@keyframes</code> is how to specify exactly what happens within the animation over the duration. This is done by giving CSS properties for specific "frames" during the animation, with percentages ranging from 0% to 100%. If you compare this to a movie, the CSS properties for 0% is how the element displays in the opening scene. The CSS properties for 100% is how the element appears at the end, right before the credits roll. Then CSS applies the magic to transition the element over the given duration to act out the scene. Here's an example to illustrate the usage of <code>@keyframes</code> and the animation properties:</p>
+      <div><blockquote>
+        #anim { <br>
+        &nbsp;animation-name: colorful; <br>
+        &nbsp;animation-duration: 3s; <br>
+        } <br>
+        @keyframes colorful { <br>
+        &nbsp;0% { <br>
+        &nbsp;&nbsp;background-color: blue; <br>
+        &nbsp;} <br>
+        &nbsp;100% { <br>
+        &nbsp;&nbsp;background-color: yellow; <br>
+        &nbsp;} <br>
+        }
+      </blockquote></div>
+      <p>For the element with the <code>anim</code> id, the code snippet above sets the <code>animation-name</code> to <code>colorful</code> and sets the <code>animation-duration</code> to 3 seconds. Then the <code>@keyframes</code> rule links to the animation properties with the name <code>colorful</code>. It sets the color to blue at the beginning of the animation (0%) which will transition to yellow by the end of the animation (100%). You aren't limited to only beginning-end transitions, you can set properties for the element for any percentage between 0% and 100%.</p>
+      <p>You can use CSS <code>@keyframes</code> to change the features of elements in its hover state. Here's an example of changing the width of an image on hover:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+        img:hover { <br>
+        &nbsp;animation-name: width; <br>
+        &nbsp;animation-duration: 500ms; <br>
+        } <br>
+        @keyframes width { <br>
+        &nbsp;100% { <br>
+        &nbsp;&nbsp;width: 40px; <br>
+        &nbsp;} <br>
+        } <br>
+        &lt;/style&gt; <br>
+        &lt;img src="https://bit.ly/smallgooglelogo" alt="Google's Logo" /&gt;
+      </blockquote></div>
+      <p>Notice how the animation resets after 500ms has passed. You may want the animation to stay at 100% on hover. This can be done by setting the <code>animation-fill-mode</code> property to <code>forwards</code>. The <code>animation-fill-mode</code> specifies the style applied to an element when the animation has finished. You can set it like so: <code>animation-fill-mode: forwards;</code></p>
+
+      <h4>Create Movement Using CSS Animation</h4>
+      <p>When elements have a specified position, such as <code>fixed</code> or <code>relative</code>, the CSS offset properties right, left, top, and bottom can be used in animation rules to create movement. As shown in the example below, you can push the item downwards then upwards by setting the top property of the 50% keyframe to 50px, but having it set to 0px for the first (0%) and the last (100%) keyframe.</p>
+      <div><blockquote>
+        @keyframes rainbow { <br>
+        &nbsp;0% { <br>
+        &nbsp;&nbsp;background-color: blue; <br>
+        &nbsp;&nbsp;top: 0px; <br>
+        &nbsp;} <br>
+        &nbsp;50% { <br>
+        &nbsp;&nbsp;background-color: green; <br>
+        &nbsp;&nbsp;top: 50px; <br>
+        &nbsp;} <br>
+        &nbsp;100% { <br>
+        &nbsp;&nbsp;background-color: yellow; <br>
+        &nbsp;&nbsp;top: 0px; <br>
+        &nbsp;} <br>
+        }
+      </blockquote></div>
+      <p>You can change the opacity of an animated element so it gradually fades as it reaches a point on screen. Within the <code>@keyframes</code> rule, at a % of the keyframe, include the <code>opacity</code> property and set it to something between 0 and 1.</p>
+      <p>The previous examples covered how to use some of the animation properties and the <code>@keyframes</code> rule. Another animation property is the <code>animation-iteration-count</code>, which allows you to control how many times you would like to loop through the animation. Here's an example: <code>animation-iteration-count: 3;</code></p>
+      <p>In this case the animation will stop after running 3 times, but it's possible to make the animation run continuously by setting that value to <code>infinite</code>.</p>
+      <p>In CSS animations, the <code>animation-timing-function</code> property controls how quickly an animated element changes over the duration of the animation. If the animation is a car moving from point A to point B in a given time (your <code>animation-duration</code>), the <code>animation-timing-function</code> says how the car accelerates and decelerates over the course of the drive.</p>
+      <p>There are a number of predefined keywords available for popular options. For example, the default value is <code>ease</code>, which starts slow, speeds up in the middle, and then slows down again in the end. Other options include <code>ease-out</code>, which is quick in the beginning then slows down, <code>ease-in</code>, which is slow in the beginning, then speeds up at the end, or <code>linear</code>, which applies a constant animation speed throughout.</p>
+
+      <h4>Bezier Curves</h4>
+      <p>CSS offers an option other than keywords that provides even finer control over how the animation plays out, through the use of Bezier curves.</p>
+      <p>In CSS animations, Bezier curves are used with the <code>cubic-bezier</code> function. The shape of the curve represents how the animation plays out. The curve lives on a 1 by 1 coordinate system. The X-axis of this coordinate system is the duration of the animation (think of it as a time scale), and the Y-axis is the change in the animation.</p>
+      <p>The <code>cubic-bezier</code> function consists of four main points that sit on this 1 by 1 grid: <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>. <code>p0</code> and <code>p3</code> are set for you - they are the beginning and end points which are always located respectively at the origin (0, 0) and (1, 1). You set the x and y values for the other two points, and where you place them in the grid dictates the shape of the curve for the animation to follow. This is done in CSS by declaring the x and y values of the <code>p1</code> and <code>p2</code> "anchor" points in the form: (x1, y1, x2, y2). Pulling it all together, here's an example of a Bezier curve in CSS code:</p>
+      <p><code>animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);</code></p>
+      <p>In the example above, the x and y values are equivalent for each point (x1 = 0.25 = y1 and x2 = 0.75 = y2), which if you remember from geometry class, results in a line that extends from the origin to point (1, 1). This animation is a linear change of an element during the length of an animation, and is the same as using the <code>linear</code> keyword. In other words, it changes at a constant speed.</p>
+      <p>Similar animation progressions to the <code>ease-out</code> keyword can be achieved by using a custom cubic Bezier curve function. In general, changing the <code>p1</code> and <code>p2</code> anchor points drives the creation of different Bezier curves, which controls how the animation progresses through time. Here's an example of a Bezier curve using values to mimic the <code>ease-out</code> style:</p>
+      <p><code>animation-timing-function: cubic-bezier(0, 0, 0.58, 1);</code></p>
+      <p>Remember that all <code>cubic-bezier</code> functions start with <code>p0</code> at (0, 0) and end with <code>p3</code> at (1, 1). In this example, the curve moves faster through the Y-axis (starts at 0, goes to <code>p1</code> y value of 0, then goes to <code>p2</code> y value of 1) than it moves through the X-axis (0 to start, then 0 for <code>p1</code>, up to 0.58 for <code>p2</code>). As a result, the change in the animated element progresses faster than the time of the animation for that segment. Towards the end of the curve, the relationship between the change in x and y values reverses - the y value moves from 1 to 1 (no change), and the x values move from 0.58 to 1, making the animation changes progress slower compared to the animation duration.</p>
+      <p>The following cubic Bezier curve simulates a juggling movement:</p>
+      <p><code>cubic-bezier(0.3, 0.4, 0.5, 1.6);</code></p>
+      <p>Notice that the value of y2 is larger than 1. Although the cubic Bezier curve is mapped on an 1 by 1 coordinate system, and it can only accept x values from 0 to 1, the y value can be set to numbers larger than one. This results in a bouncing movement that is ideal for simulating the juggling ball.</p>
+    </section>
+
+    <section class="main-section" id="Applied_Accessibility">
+      <header id="accessibility">Applied Accessibility</header>
+      <h4>What is Applied Accessibility?</h4>
+      <p>"Accessibility" generally means having web content and a user interface that can be understood, navigated, and interacted with by a broad audience. This includes people with visual, auditory, mobility, or cognitive disabilities. Websites should be open and accessible to everyone, regardless of a user's abilities or resources. Some users rely on assistive technology such as a screen reader or voice recognition software. Other users may be able to navigate through a site only using a keyboard. Keeping the needs of various users in mind when developing your project can go a long way towards creating an open web.</p>
+
+      <h4>Image Text Alternative</h4>
+      <p>It's likely you remember an <code>alt</code> attribute on an <code>img</code> tag from above. Alt text describes the content of the image and provides a text-alternative. This helps in case the image fails to load or can't be seen by a user. It's also used by search engines to understand what an image contains to include it in search results. Here's an example:</p>
+      <p><code>&lt;img src="importantLogo.jpeg" alt="Company logo"&gt;</code></p>
+      <p>People with visual impairments rely on screen readers to convert web content to an audio interface. They won't get information if it's only presented visually. For images, screen readers can access the <code>alt</code> attribute and read its contents to deliver key information.</p>
+      <p>Good alt text is short but descriptive, and meant to briefly convey the meaning of the image. You should always include an <code>alt</code> attribute on your image. Per HTML5 specification, this is now considered mandatory.</p>
+      <p>Sometimes images are grouped with a caption already describing them, or are used for decoration only. In these cases alt text may seem redundant or unnecessary. In situations when an image is already explained with text content, or does not add meaning to a page, the img still needs an <code>alt</code> attribute, but it can be set to an empty string. Here's an example:</p>
+      <p><code>&lt;img src="visualDecoration.jpeg" alt=""&gt;</code></p>
+      <p>Background images usually fall under the 'decorative' label as well. However, they are typically applied with CSS rules, and therefore not part of the markup screen readers process.</p>
+      <p>Note: For images with a caption, you may still want to include alt text, since it helps search engines catalog the content of the image.</p>
+
+      <h4>Hierarchical Content</h4>
+      <p>Headings (<code>h1</code> through <code>h6</code> elements) are workhorse tags that help provide structure and labeling to your content. Screen readers can be set to read only the headings on a page so the user gets a summary. This means it is important for the heading tags in your markup to have semantic meaning and relate to each other, not be picked merely for their size values.</p>
+      <p><em>Semantic meaning</em> means that the tag you use around content indicates the type of information it contains.</p>
+      <p>If you were writing a paper with an introduction, a body, and a conclusion, it wouldn't make much sense to put the conclusion as a subsection of the body in your outline. It should be its own section. Similarly, the heading tags in a webpage need to go in order and indicate the hierarchical relationships of your content.</p>
+      <p>Headings with equal (or higher) rank start new implied sections, headings with lower rank start subsections of the previous one.</p>
+      <p>As an example, a page with an <code>h2</code> element followed by several subsections labeled with <code>h4</code> tags would confuse a screen reader user. With six choices, it's tempting to use a tag because it looks better in a browser, but you can use CSS to edit the relative sizing.</p>
+      <p>One final point, each page should always have one (and only one) <code>h1</code> element, which is the main subject of your content. This and the other headings are used in part by search engines to understand the topic of the page.</p>
+      <p>HTML5 introduced a number of new elements that give developers more options while also incorporating accessibility features. These tags include <code>main</code>, <code>header</code>, <code>footer</code>, <code>nav</code>, <code>article</code>, and <code>section</code>, among others.</p>
+      <p>By default, a browser renders these elements similarly to the humble <code>div</code>. However, using them where appropriate gives additional meaning in your markup. The tag name alone can indicate the type of information it contains, which adds semantic meaning to that content. Assistive technologies can access this information to provide better page summary or navigation options to their users.</p>
+      <p>The <code>main</code> element is used to wrap (you guessed it) the main content, and there should be only one per page. It's meant to surround the information that's related to the central topic of your page. It's not meant to include items that repeat across pages, like navigation links or banners.</p>
+      <p>The <code>main</code> tag also has an embedded landmark feature that assistive technology can use to quickly navigate to the main content. If you've ever seen a "Jump to Main Content" link at the top of a page, using a <code>main</code> tag automatically gives assistive devices that functionality.</p>
+      <p><code>article</code> is another one of the new HTML5 elements that adds semantic meaning to your markup. Article is a sectioning element, and is used to wrap independent, self-contained content. The tag works well with blog entries, forum posts, or news articles.</p>
+      <p>Determining whether content can stand alone is usually a judgement call, but there are a couple simple tests you can use. Ask yourself if you removed all surrounding context, would that content still make sense? Similarly for text, would the content hold up if it were in an RSS feed?</p>
+      <p>Remember that folks using assistive technologies rely on organized, semantically meaningful markup to better understand your work.</p>
+      <p>Note about <code>section</code> and <code>div</code>: The <code>section</code> element is also new with HTML5, and has a slightly different semantic meaning than <code>article</code>. An <code>article</code> is for standalone content, and a <code>section</code> is for grouping thematically related content. They can be used within each other, as needed. For example, if a book is the article, then each chapter is a section. When there's no relationship between groups of content, then use a <code>div</code>.</p>
+      <ul>
+        <li><code>&lt;div&gt;</code> - groups content</li>
+        <li><code>&lt;section&gt;</code> - groups related content</li>
+        <li><code>&lt;article&gt;</code> - groups independent, self-contained content</li>
+      </ul>
+
+      <h4>Screed Reader Navigation</h4>
+      <p>The next HTML5 element that adds semantic meaning and improves accessibility is the <code>header</code> tag. It's used to wrap introductory information or navigation links for its parent tag, and works well around content that's repeated at the top on multiple pages.</p>
+      <p><code>header</code> shares the embedded landmark feature you saw with <code>main</code>, allowing assistive technologies to quickly navigate to that content.</p>
+      <p>Note: <code>header</code> is meant for use in the <code>body</code> tag of your HTML document. This is different than the <code>head</code> element, which contains the page's title, meta information, etc.</p>
+      <p>The <code>nav</code> element is another HTML5 item with the embedded landmark feature for easy screen reader navigation. This tag is meant to wrap around the main navigation links in your page.</p>
+      <p>If there are repeated site links at the bottom of the page, it isn't necessary to markup those with a <code>nav</code> tag as well. Using a <code>footer</code> is sufficient.</p>
+      <p>Similar to <code>header</code> and <code>nav</code>, the <code>footer</code> element has a built-in landmark feature that allows assistive devices to quickly navigate to it. It's primarily used to contain copyright information or links to related documents that usually sit at the bottom of a page.</p>
+
+      <h4>Audio Accessibility</h4>
+      <p>HTML5's <code>audio</code> element gives semantic meaning when it wraps sound or audio stream content in your markup. Audio content also needs a text alternative to be accessible to people who are deaf or hard of hearing. This can be done with nearby text on the page or a link to a transcript.</p>
+      <p>The <code>audio</code> tag supports the <code>controls</code> attribute. This shows the browser default play, pause, and other controls, and supports keyboard functionality. This is a boolean attribute, meaning it doesn't need a value, its presence on the tag turns the setting on. Here's an example:</p>
+      <div><blockquote>
+        &lt;audio id="meowClip" controls&gt; <br>
+        &nbsp;&lt;source src="audio/meow.mp3" type="audio/mpeg" /&gt; <br>
+        &nbsp;&lt;source src="audio/meow.ogg" type="audio/ogg" /&gt; <br>
+        &lt;/audio&gt;
+      </blockquote></div>
+      <p>Note :Multimedia content usually has both visual and auditory components. It needs synchronized captions and a transcript so users with visual and/or auditory impairments can access it. Generally, a web developer is not responsible for creating the captions or transcript, but needs to know to include them.</p>
+
+      <h4>Chart Accessibility</h4>
+      <p>HTML5 introduced the <code>figure</code> element, along with the related <code>figcaption</code>. Used together, these items wrap a visual representation (like an image, diagram, or chart) along with its caption. This gives a two-fold accessibility boost by both semantically grouping related content, and providing a text alternative that explains the figure.</p>
+      <p>For data visualizations like charts, the caption can be used to briefly note the trends or conclusions for users with visual impairments. Another challenge covers how to move a table version of the chart's data off-screen (using CSS) for screen reader users. Here's an example - note that the <code>figcaption</code> goes inside the <code>figure</code> tags and can be combined with other elements:</p>
+      <div><blockquote>
+        &lt;figure&gt; <br>
+        &nbsp;&lt;img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick"&gt; <br>
+        &nbsp;&lt;br&gt; <br>
+        &nbsp;&lt;figcaption&gt; <br>
+        &nbsp;&nbsp;Master Camper Cat demonstrates proper form of a roundhouse kick. <br>
+        &nbsp;&lt;/figcaption&gt; <br>
+        &nbsp;&lt;/figure&gt;
+      </blockquote></div>
+
+      <h4>Form Accessibility</h4>
+      <p>Improving accessibility with semantic HTML markup applies to using both appropriate tag names as well as attributes. This includes several things about forms.</p>
+      <p>The <code>label</code> tag wraps the text for a specific form control item, usually the name or label for a choice. This ties meaning to the item and makes the form more readable. The <code>for</code> attribute on a <code>label</code> tag explicitly associates that label with the form control and is used by screen readers.</p>
+      <p>You learned about radio buttons and their labels in a lesson in the Basic HTML section. In that lesson, we wrapped the radio button input element inside a label element along with the label text in order to make the text clickable. Another way to achieve this is by using the <code>for</code> attribute as explained here.</p>
+      <p>The value of the <code>for</code> attribute must be the same as the value of the <code>id</code> attribute of the form control. Here's an example:</p>
+      <div><blockquote>
+        &lt;form&gt; <br>
+        &nbsp;&lt;label for="name">Name:&lt;/label&gt; <br>
+        &nbsp;&lt;input type="text" id="name" name="name"&gt; <br>
+        &lt;/form&gt;
+      </blockquote></div>
+      <p>The next form topic covers accessibility of radio buttons. Each choice is given a <code>label</code> with a <code>for</code> attribute tying to the <code>id</code> of the corresponding item as covered above. Since radio buttons often come in a group where the user must choose one, there's a way to semantically show the choices are part of a set.</p>
+      <p>The <code>fieldset</code> tag surrounds the entire grouping of radio buttons to achieve this. It often uses a <code>legend</code> tag to provide a description for the grouping, which is read by screen readers for each choice in the <code>fieldset</code> element.</p>
+      <p>The <code>fieldset</code> wrapper and <code>legend</code> tag are not necessary when the choices are self-explanatory, like a gender selection. Using a <code>label</code> with the <code>for</code> attribute for each radio button is sufficient. Here's an example:</p>
+      <div><blockquote>
+        &lt;form&gt; <br>
+        &nbsp;&lt;fieldset&gt; <br>
+        &nbsp;&nbsp;&lt;legend&gt;Choose one of these three items:&lt;/legend&gt; <br>
+        &nbsp;&nbsp;&lt;input id="one" type="radio" name="items" value="one"&gt; <br>
+        &nbsp;&nbsp;&lt;label for="one"&gt;Choice One&lt;/label&gt;&lt;br&gt; <br>
+        &nbsp;&nbsp;&lt;input id="two" type="radio" name="items" value="two"&gt; <br>
+        &nbsp;&nbsp;&lt;label for="two"&gt;Choice Two&lt;/label&gt;&lt;br&gt; <br>
+        &nbsp;&nbsp;&lt;input id="three" type="radio" name="items" value="three"&gt; <br>
+        &nbsp;&nbsp;&lt;label for="three"&gt;Choice Three&lt;/label&gt; <br>
+        &nbsp;&lt;/fieldset&gt; <br>
+        &lt;/form&gt;
+      </blockquote></div>
+      <p>Forms often include the <code>input</code> field, which can be used to create several different form controls. The <code>type</code> attribute on this element indicates what kind of input will be created.</p>
+      <p>You may have noticed the <code>text</code> and <code>submit</code> input types above, and HTML5 introduced an option to specify a <code>date</code> field. Depending on browser support, a date picker shows up in the <code>input</code> field when it's in focus, which makes filling in a form easier for all users.</p>
+      <p>For older browsers, the type will default to text, so it helps to show users the expected date format in the label or as placeholder text just in case. Here's an example:</p>
+      <div><blockquote>
+        &lt;label for="input1"&gt;Enter a date:&lt;/label&gt;
+        &lt;input type="date" id="input1" name="input1"&gt;
+      </blockquote></div>
+      <p>Continuing with the date theme, HTML5 also introduced the <code>time</code> element along with a <code>datetime</code> attribute to standardize times. This is an inline element that can wrap a date or time on a page. A valid format of that date is held by the <code>datetime</code> attribute. This is the value accessed by assistive devices. It helps avoid confusion by stating a standardized version of a time, even if it's written in an informal or colloquial manner in the text. Here's an example:</p>
+      <p><code>&lt;p&gt;Master Camper Cat officiated the cage match between Goro and Scorpion &lt;time datetime="2013-02-13"&gt;last Wednesday&lt;/time&gt;, which ended in a draw.&lt;/p&gt;</code></p>
+
+      <h4>Make Elements Only Visible to Screen Readers</h4>
+      <p>Have you noticed that all of the applied accessibility information so far hasn't used any CSS? This is to show the importance of a logical document outline, and using semantically meaningful tags around your content before introducing the visual design aspect.</p>
+      <p>However, CSS's magic can also improve accessibility on your page when you want to visually hide content meant only for screen readers. This happens when information is in a visual format (like a chart), but screen reader users need an alternative presentation (like a table) to access the data. CSS is used to position the screen reader-only elements off the visual area of the browser window. Here's an example of the CSS rules that accomplish this:</p>
+      <div><blockquote>
+        .sr-only { <br>
+        &nbsp;position: absolute; <br>
+        &nbsp;left: -10000px; <br>
+        &nbsp;width: 1px; <br>
+        &nbsp;height: 1px; <br>
+        &nbsp;top: auto; <br>
+        &nbsp;overflow: hidden; <br>
+        }
+      </blockquote></div>
+      <p>Note: The following CSS approaches will NOT do the same thing:</p>
+      <ul>
+        <li><code>display: none;</code> or <code>visibility: hidden;</code> hides content for everyone, including screen reader users</li>
+        <li>Zero values for pixel sizes, such as <code>width: 0px; height: 0px;</code> removes that element from the flow of your document, meaning screen readers will ignore it</li>
+      </ul>
+
+      <h4>Improve Readability</h4>
+      <p>Low contrast between the foreground and background colors can make text difficult to read. Sufficient contrast improves the readability of your content, but what exactly does "sufficient" mean?</p>
+      <p>The Web Content Accessibility Guidelines (WCAG) recommend at least a 4.5 to 1 contrast ratio for normal text. The ratio is calculated by comparing the relative luminance values of two colors. This ranges from 1:1 for the same color, or no contrast, to 21:1 for white against black, the strongest contrast. There are many contrast checking tools available online that calculate this ratio for you.</p>
+      <p>Color is a large part of visual design, but its use introduces two accessibility issues. First, color alone should not be used as the only way to convey important information because screen reader users won't see it. Second, foreground and background colors need sufficient contrast so colorblind users can distinguish them.</p>
+      <p>We just covered having text alternatives to address the first issue. The WCAG-recommended contrast ratio of 4.5:1 applies for color use as well as gray-scale combinations.</p>
+      <p>Colorblind users have trouble distinguishing some colors from others - usually in hue but sometimes lightness as well. You may recall the contrast ratio is calculated using the relative luminance (or lightness) values of the foreground and background colors.</p>
+      <p>In practice, the 4.5:1 ratio can be reached by darkening the darker color and lightening the lighter one with the aid of a color contrast checker. Darker colors on the color wheel are considered to be blues, violets, magentas, and reds, whereas lighter colors are oranges, yellows, greens, and blue-greens.</p>
+      <p>There are various forms of colorblindness. These can range from a reduced sensitivity to a certain wavelength of light to the inability to see color at all. The most common form is a reduced sensitivity to detect greens.</p>
+      <p>For example, if two similar green colors are the foreground and background color of your content, a colorblind user may not be able to distinguish them. Close colors can be thought of as neighbors on the color wheel, and those combinations should be avoided when conveying important information.</p>
+      <p>Note: Some online color picking tools include visual simulations of how colors appear for different types of colorblindness. These are great resources in addition to online contrast checking calculators.</p>
+
+      <h4>Accessible Links</h4>
+      <p>Screen reader users have different options for what type of content their device reads. This includes skipping to (or over) landmark elements, jumping to the main content, or getting a page summary from the headings. Another option is to only hear the links available on a page.</p>
+      <p>Screen readers do this by reading the link text, or what's between the anchor (<code>a</code>) tags. Having a list of "click here" or "read more" links isn't helpful. Instead, you should use brief but descriptive text within the a tags to provide more meaning for these users.</p>
+
+      <h4>Keyboard Focus</h4>
+      <p>HTML offers the <code>accesskey</code> attribute to specify a shortcut key to activate or bring focus to an element. This can make navigation more efficient for keyboard-only users.</p>
+      <p>HTML5 allows this attribute to be used on any element, but it's particularly useful when it's used with interactive ones. This includes links, buttons, and form controls. Here's an example:</p>
+      <p><code>&lt;button accesskey="b"&gt;Important Button&lt;/button&gt;</code></p>
+      <p>The HTML <code>tabindex</code> attribute has three distinct functions relating to an element's keyboard focus. When it's on a tag, it indicates that element can be focused on. The value (an integer that's positive, negative, or zero) determines the behavior.</p>
+      <p>Certain elements, such as links and form controls, automatically receive keyboard focus when a user tabs through a page. It's in the same order as the elements come in the HTML source markup. This same functionality can be given to other elements, such as <code>div</code>, <code>span</code>, and <code>p</code>, by placing a <code>tabindex="0"</code> attribute on them. Here's an example:</p>
+      <p><code>&lt;div tabindex="0"&gt;I need keyboard focus!&lt;/div&gt;</code></p>
+      <p>Note: A negative <code>tabindex</code> value (typically -1) indicates that an element is focusable, but is not reachable by the keyboard. This method is generally used to bring focus to content programmatically (like when a <code>div</code> used for a pop-up window is activated), and is beyond the scope of this section.</p>
+      <p>The <code>tabindex</code> attribute also specifies the exact tab order of elements. This is achieved when the value of the attribute is set to a positive number of 1 or higher.</p>
+      <p>Setting a <code>tabindex="1"</code> will bring keyboard focus to that element first. Then it cycles through the sequence of specified <code>tabindex</code> values (2, 3, etc.), before moving to default and <code>tabindex="0"</code> items.</p>
+      <p>It's important to note that when the tab order is set this way, it overrides the default order (which uses the HTML source). This may confuse users who are expecting to start navigation from the top of the page. This technique may be necessary in some circumstances, but in terms of accessibility, take care before applying it. Here's an example:</p>
+      <p><code>&lt;div tabindex="1"&gt;I get keyboard focus, and I get it first!&lt;/div&gt;</code></p>
+      <p><code>&lt;div tabindex="2"&gt;I get keyboard focus, and I get it second!&lt;/div&gt;</code></p>
+    </section>
+
+    <section class="main-section" id="Responsive_Web_Design_Principles">
+      <header id="principles">Responsive Web Design Principles</header>
+      <h4>Intoduction to Responsive Web Design</h4>
+      <p>Today, there are many types of devices that can access the web. They range from large desktop computers to small mobile phones. These devices have different screen sizes, resolutions, and processing power. Responsive Web Design is an approach to designing web content that responds to the constraints of different devices. The page structure and CSS rules should be flexible to accommodate these differences. In general, design the page's CSS to your target audience. If you expect most of your traffic to be from mobile users, take a 'mobile-first' approach. Then add conditional rules for larger screen sizes. If your visitors are desktop users, then design for larger screens with conditional rules for smaller sizes. CSS gives you the tools to write different style rules, then apply them depending on the device displaying the page.</p>
+
+      <h4>Media Query</h4>
+      <p>Media Queries are a new technique introduced in CSS3 that change the presentation of content based on different viewport sizes. The viewport is a user's visible area of a web page, and is different depending on the device used to access the site.</p>
+      <p>Media Queries consist of a media type, and if that media type matches the type of device the document is displayed on, the styles are applied. You can have as many selectors and styles inside your media query as you want.</p>
+      <p>Here's an example of a media query that returns the content when the device's width is less than or equal to 100px:</p>
+      <p><code>@media (max-width: 100px) { /* CSS Rules */ }</code></p>
+      <p>and the following media query returns the content when the device's height is more than or equal to 350px:</p>
+      <p><code>@media (min-height: 350px) { /* CSS Rules */ }</code></p>
+      <p>Remember, the CSS inside the media query is applied only if the media type matches that of the device being used.</p>
+
+      <h4>Responsive Images</h4>
+      <p>Making images responsive with CSS is actually very simple. Instead of applying an absolute width to an element:</p>
+      <p><code>img { width: 720px; }</code></p>
+      <p>You can use:</p>
+      <div><blockquote>
+        img { <br>
+        &nbsp;max-width: 100%; <br>
+        &nbsp;display: block; <br>
+        &nbsp;height: auto; <br>
+        }
+      </blockquote></div>
+      <p>The <code>max-width</code> property of 100% scales the image to fit the width of its container, but the image won't stretch wider than its original width. Setting the <code>display</code> property to block changes the image from an inline element (its default), to a block element on its own line. The <code>height</code> property of auto keeps the original aspect ratio of the image.</p>
+
+      <h4>Retina Image for Higher Resolution Displays</h4>
+      <p>The simplest way to make your images appear "retina" (and optimize them for retina displays) is to define their <code>width</code> and <code>height</code> values as only half of what the original file is.</p>
+      <p>Here is an example of an image that is only using half of the original height and width:</p>
+      <div><blockquote>
+        &lt;style&gt; <br>
+        &nbsp;img { height: 250px; width: 250px; } <br>
+        &lt;/style&gt;
+        &lt;img src="coolPic500x500" alt="A most excellent picture"&gt;
+      </blockquote></div>
+
+      <h4>Make Typography Responsive</h4>
+      <p>Instead of using <code>em</code> or <code>px</code> to size text, you can use viewport units for responsive typography. Viewport units, like percentages, are relative units, but they are based off different items. Viewport units are relative to the viewport dimensions (width or height) of a device, and percentages are relative to the size of the parent container element.</p>
+      <p>The four different viewport units are:</p>
+      <ul>
+        <li><code>vw: 10vw</code> would be 10% of the viewport's width.</li>
+        <li><code>vh: 3vh</code> would be 3% of the viewport's height.</li>
+        <li><code>vmin: 70vmin</code> would be 70% of the viewport's smaller dimension (height vs. width).</li>
+        <li><code>vmax</code>: 100vmax would be 100% of the viewport's bigger dimension (height vs. width).</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="CSS_Flexbox">
+      <header id="flexbox">CSS Flexbox</header>
+      <h4>Introduction to CSS Flexbox</h4>
+      <p>A website's User Interface ("UI") has two components. First, there are the visual elements, such as colors, fonts, and images. Second, there is the placement or positioning of those elements. In Responsive Web Design, a UI layout must accommodate many different browsers and devices accessing the content.</p>
+      <p>CSS3 introduced Flexible Boxes, or flexbox, to create page layouts for a dynamic UI. It is a layout mode that arranges elements in a predictable way for different screen sizes and browsers. While somewhat new, all popular modern browsers support flexbox. This section covers how to use flexbox and the different layout options it offers.</p>
+
+      <h4>Adding Flex</h4>
+      <p>Placing the CSS property <code>display: flex;</code> on an element allows you to use other flex properties to build a responsive page.</p>
+
+      <h4>Flex-direction Properties</h4>
+      <p>Adding <code>display: flex</code> to an element turns it into a flex container. This makes it possible to align any children of that element into rows or columns. You do this by adding the <code>flex-direction</code> property to the parent item and setting it to <code>row</code> or <code>column</code>. Creating a row will align the children horizontally, and creating a column will align the children vertically.</p>
+      <p>Other options for <code>flex-direction</code> are <code>row-reverse</code> and <code>column-reverse</code>.</p>
+      <p>Note: The default value for the <code>flex-direction</code> property is <code>row</code>.</p>
+
+      <h4>Aligning Elements</h4>
+      <p>Sometimes the flex items within a flex container do not fill all the space in the container. It is common to want to tell CSS how to align and space out the flex items a certain way. Fortunately, the <code>justify-content</code> property has several options to do this. But first, there is some important terminology to understand before reviewing those options.</p>
+      <p>Here is a useful image showing a row to illustrate the concepts below:</p>
+      <div><img src="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" alt="flex direction terms"></div>
+      <p>Recall that setting a flex container as a row places the flex items side-by-side from left-to-right. A flex container set as a column places the flex items in a vertical stack from top-to-bottom. For each, the direction the flex items are arranged is called the <strong>main axis</strong>. For a row, this is a horizontal line that cuts through each item. And for a column, the main axis is a vertical line through the items.</p>
+      <p>There are several options for how to space the flex items along the line that is the main axis. One of the most commonly used is <code>justify-content: center;</code>, which aligns all the flex items to the center inside the flex container. Others options include:</p>
+      <ul>
+        <li><code>flex-start</code>: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container.</li>
+        <li><code>flex-end</code>: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.</li>
+        <li><code>space-between</code>: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the other items between them are spaced evenly.</li>
+        <li><code>space-around</code>: similar to space-between but the first and last items are not locked to the edges of the container, the space is distributed around all the items</li>
+      </ul>
+      <p>The <code>align-items</code> property is similar to <code>justify-content</code>. Recall that the <code>justify-content</code> property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.</p>
+      <p>Flex containers also have a <strong>cross axis</strong> which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.</p>
+      <p>CSS offers the <code>align-items</code> property to align flex items along the cross axis. For a row, it tells CSS how to push the items in the entire row up or down within the container. And for a column, how to push all the items left or right within the container.</p>
+      <p>The different values available for <code>align-items</code> include:</p>
+      <ul>
+        <li><code>flex-start</code>: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.</li>
+        <li><code>flex-end</code>: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.</li>
+        <li><code>center</code>: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).</li>
+        <li><code>stretch</code>: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom.</li>
+        <li><code>baseline</code>: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.</li>
+      </ul>
+
+      <h4>Flex Properties</h4>
+      <p>CSS flexbox has a feature to split a flex item into multiple rows (or columns). By default, a flex container will fit all flex items together. For example, a row will all be on one line.</p>
+      <p>However, using the <code>flex-wrap</code> property, it tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.</p>
+      <p>CSS also has options for the direction of the wrap:</p>
+      <ul>
+        <li><code>nowrap</code>: this is the default setting, and does not wrap items.</li>
+        <li><code>wrap</code>: wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.</li>
+        <li><code>wrap-reverse</code>: wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.</li>
+      </ul>
+      <p>So far, all the properties in the challenges apply to the flex container (the parent of the flex items). However, there are several useful properties for the flex items.</p>
+      <p>The first is the <code>flex-shrink</code> property. When it's used, it allows an item to shrink if the flex container is too small. Items shrink when the width of the parent container is smaller than the combined widths of all the flex items within it.</p>
+      <p>The <code>flex-shrink</code> property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a <code>flex-shrink</code> value of 1 and the other has a <code>flex-shrink</code> value of 3, the one with the value of 3 will shrink three times as much as the other.</p>
+      <p>The opposite of <code>flex-shrink</code> is the <code>flex-grow</code> property. Recall that <code>flex-shrink</code> controls the size of the items when the container shrinks. The <code>flex-grow</code> property controls the size of items when the parent container expands.</p>
+      <p>Using a similar example from <code>flex-shrink</code>, if one item has a <code>flex-grow</code> value of 1 and the other has a <code>flex-grow</code> value of 3, the one with the value of 3 will grow three times as much as the other.</p>
+      <p>The <code>flex-basis</code> property specifies the initial size of the item before CSS makes adjustments with <code>flex-shrink</code> or <code>flex-grow</code>.</p>
+      <p>The units used by the <code>flex-basis</code> property are the same as other size properties (px, em, %, etc.). The value auto sizes items based on the content.</p>
+      <p>There is a shortcut available to set several flex properties at once. The <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> properties can all be set together by using the <code>flex</code> property.</p>
+      <p>For example, <code>flex: 1 0 10px;</code> will set the item to <code>flex-grow: 1;</code>, <code>flex-shrink: 0;</code>, and <code>flex-basis: 10px;</code>.</p>
+      <p>The default property settings are <code>flex: 0 1 auto;</code>.</p>
+      <p>The <code>order</code> property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.</p>
+      <p>The final property for flex items is <code>align-self</code>. This property allows you to adjust each item's alignment individually, instead of setting them all at once. This is useful since other common adjustment techniques using the CSS properties <code>float</code>, <code>clear</code>, and <code>vertical-align</code> do not work on flex items.</p>
+      <p><code>align-self</code> accepts the same values as <code>align-items</code> and will override any value set by the <code>align-items</code> property.</p>
+    </section>
+
+    <section class="main-section" id="CSS_Grid">
+      <header id="grid">CSS Grid</header>
+      <h4>Introduction to CSS Grid</h4>
+      <p>CSS Grid helps you easily build complex web designs. It works by turning an HTML element into a grid container with rows and columns for you to place children elements where you want within the grid.</p>
+
+      <h4>Adding Grid</h4>
+      <p>Turn any HTML element into a grid container by setting its <code>display</code> property to <code>grid</code>. This gives you the ability to use all the other properties associated with CSS Grid.</p>
+      <p>Note: In CSS Grid, the parent element is referred to as the container and its children are called items.</p>
+
+      <h4>Adding Columns and Rows</h4>
+      <p>Simply creating a grid element doesn't get you very far. You need to define the structure of the grid as well. To add some columns to the grid, use the <code>grid-template-columns</code> property on a grid container as demonstrated below:</p>
+      <div><blockquote>
+        .container { <br>
+        &nbsp;display: grid; <br>
+        &nbsp;grid-template-columns: 50px 50px; <br>
+        }
+      </blockquote></div>
+      <p>This will give your grid two columns that are 50px wide each. The number of parameters given to the <code>grid-template-columns</code> property indicates the number of columns in the grid, and the value of each parameter indicates the width of each column.</p>
+      <p>The grid created above will set the number of rows automatically. To adjust the rows manually, use the <code>grid-template-rows</code> property in the same way you used <code>grid-template-columns</code> above.</p>
+
+      <h4>Adjusting Columns and Rows</h4>
+      <p>You can use absolute and relative units like px and em in CSS Grid to define the size of rows and columns. You can use these as well:</p>
+      <ul>
+        <li><code>fr</code>: sets the column or row to a fraction of the available space,</li>
+        <li><code>auto</code>: sets the column or row to the width or height of its content automatically,</li>
+        <li><code>%</code>: adjusts the column or row to the percent width of its container.</li>
+      </ul>
+      <p>Here's an example:</p>
+      <p><code>grid-template-columns: auto 50px 10% 2fr 1fr;</code></p>
+      <p>This snippet creates five columns. The first column is as wide as its content, the second column is 50px, the third column is 10% of its container, and for the last two columns; the remaining space is divided into three sections, two are allocated for the fourth column, and one for the fifth.</p>
+      <p>So far in the grids you have created, the columns have all been tight up against each other. Sometimes you want a gap in between the columns. To add a gap between the columns, use the <code>grid-column-gap</code> property like this:</p>
+      <p><code>grid-column-gap: 10px;</code></p>
+      <p>This creates 10px of empty space between all of our columns.</p>
+      <p>You can add a gap in between the rows of a grid using <code>grid-row-gap</code> in the same way that you added a gap in between columns.</p>
+      <p><code>grid-gap</code> is a shorthand property for <code>grid-row-gap</code> and <code>grid-column-gap</code> from above that's more convenient to use. If <code>grid-gap</code> has one value, it will a create a gap between all rows and columns. However, if there are two values, it will use the first one to set the gap between the rows and the second value for the columns.</p>
+      <p>Up to this point, all the properties that have been discussed are for grid containers. The <code>grid-column</code> property is the first one for use on the grid items themselves.</p>
+      <p>The hypothetical horizontal and vertical lines that create the grid are referred to as lines. These lines are numbered starting with 1 at the top left corner of the grid and move right for columns and down for rows, counting upward.</p>
+      <p>To control the amount of columns an item will consume, you can use the <code>grid-column</code> property in conjunction with the line numbers you want the item to start and stop at. Here's an example: </p>
+      <p><code>grid-column: 1 / 3;</code></p>
+      <p>This will make the item start at the first vertical line of the grid on the left and span to the 3rd line of the grid, consuming two columns.</p>
+      <p>Of course, you can make items consume multiple rows just like you can with columns. You define the horizontal lines you want an item to start and stop at using the <code>grid-row</code> property on a grid item.</p>
+
+      <h4>Align Items</h4>
+      <p>In CSS Grid, the content of each item is located in a box which is referred to as a <em>cell</em>. You can align the content's position within its cell horizontally using the <code>justify-self</code> property on a grid item. By default, this property has a value of <code>stretch</code>, which will make the content fill the whole width of the cell. This CSS Grid property accepts other values as well:</p>
+      <ul>
+        <li><code>start</code>: aligns the content at the left of the cell,</li>
+        <li><code>center</code>: aligns the content in the center of the cell,</li>
+        <li><code>end</code>: aligns the content at the right of the cell.</li>
+      </ul>
+      <p>Just as you can align an item horizontally, there's a way to align an item vertically as well. To do this, you use the <code>align-self</code> property on an item. This property accepts all of the same values as <code>justify-self</code>.</p>
+      <p>Sometimes you want all the items in your CSS Grid to share the same alignment. You can use the previously learned properties and align them individually, or you can align them all at once horizontally by using <code>justify-items</code> on your grid container. This property can accept all the same values you learned previously, the difference being that it will move <em>all</em> the items in our grid to the desired alignment.</p>
+      <p>Using the <code>align-items</code> property on a grid container will set the vertical alignment for all the items in our grid.</p>
+
+      <h4>Dividing the Grid into an Area Template</h4>
+      <p>You can group cells of your grid together into an area and give the area a custom name. Do this by using <code>grid-template-areas</code> on the container like this:</p>
+      <div><blockquote>
+        grid-template-areas: <br>
+        &nbsp;"header header header" <br>
+        &nbsp;"advert content content" <br>
+        &nbsp;"footer footer footer";
+      </blockquote></div>
+      <p>The code above merges the top three cells together into an area named <code>header</code>, the bottom three cells into a <code>footer</code> area, and it makes two areas in the middle row; <code>advert</code> and <code>content</code>.</p>
+      <p>Note: Every word in the code represents a cell and every pair of quotation marks represent a row. In addition to custom labels, you can use a period (<code>.</code>) to designate an empty cell in the grid.</p>
+      <p>After creating an areas template for your grid container, you can place an item in your custom area by referencing the name you gave it. To do this, you use the <code>grid-area</code> property on an item like this:</p>
+      <p><code>.item1 { grid-area: header; }</code></p>
+      <p>This lets the grid know that you want the <code>item1</code> class to go in the area named <code>header</code>. In this case, the item will use the entire top row because that whole row is named as the header area.</p>
+      <p>The <code>grid-area</code> property can be used in another way. If your grid doesn't have an areas template to reference, you can create an area on the fly for an item to be placed like this:</p>
+      <p><code>item1 { grid-area: 1/1/2/4; }</code></p>
+      <p>This is using the line numbers you learned about earlier to define where the area for this item will be. The numbers in the example above represent these values:</p>
+      <p><code>grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;</code></p>
+      <p>So the item in the example will consume the rows between lines 1 and 2, and the columns between lines 1 and 4.</p>
+
+      <h4>Reduce Repetition</h4>
+      <p>When you used <code>grid-template-columns</code> and <code>grid-template-rows</code> to define the structure of a grid, you entered a value for each row or column you created.</p>
+      <p>Lets say you want a grid with 100 rows of the same height. It isn't very practical to insert 100 values individually. Fortunately, there's a better way - by using the <code>repeat</code> function to specify the number of times you want your column or row to be repeated, followed by a comma and the value you want to repeat.</p>
+      <p>Here's an example that would create the 100 row grid, each row at 50px tall:</p>
+      <p><code>grid-template-rows: repeat(100, 50px);</code></p>
+      <p>You can also repeat multiple values with the <code>repeat</code> function, and insert the function amongst other values when defining a grid structure. Here's what I mean:</p>
+      <p><code>grid-template-columns: repeat(2, 1fr 50px) 20px;</code></p>
+      <p>This translates to:</p>
+      <p><code>grid-template-columns: 1fr 50px 1fr 50px 20px;</code></p>
+      <p>Note: <code>1fr 50px</code> is repeated twice followed by 20px.</p>
+
+      <h4>Limit Item Size</h4>
+      <p>There's another built-in function to use with <code>grid-template-columns</code> and <code>grid-template-rows</code> called <code>minmax</code>. It's used to limit the size of items when the grid container changes size. To do this you need to specify the acceptable size range for your item. Here is an example:</p>
+      <p><code>grid-template-columns: 100px minmax(50px, 200px);</code></p>
+      <p>In the code above, <code>grid-template-columns</code> is set to create two columns; the first is 100px wide, and the second has the minimum width of 50px and the maximum width of 200px.</p>
+
+      <h4>Create Flexible Layouts</h4>
+      <p>The <code>repeat</code> function comes with a option called <em>auto-fill</em>. This allows you to automatically insert as many rows or columns of your desired size as possible depending on the size of the container. You can create flexible layouts when combining <code>auto-fill</code> with <code>minmax</code>. Here's an example:</p>
+      <p><code>repeat(auto-fill, minmax(60px, 1fr));</code></p>
+      <p>When the container changes size, this setup keeps inserting 60px columns and stretching them until it can insert another one.</p>
+      <p>Note: If your container can't fit all your items on one row, it will move them down to a new one.</p>
+      <p><code>auto-fit</code> works almost identically to <code>auto-fill</code>. The only difference is that when the container's size exceeds the size of all the items combined, <code>auto-fill</code> keeps inserting empty rows or columns and pushes your items to the side, while <code>auto-fit</code> collapses those empty rows or columns and stretches your items to fit the size of the container.</p>
+      <p>Note: If your container can't fit all your items on one row, it will move them down to a new one.</p>
+
+      <h4>Use Media Queries to Create Responsive Layouts</h4>
+      <p>CSS Grid can be an easy way to make your site more responsive by using media queries to rearrange grid areas, change dimensions of a grid, and rearrange the placement of items. For example:</p>
+      <div><blockquote>
+        @media (min-width: 300px){ <br>
+        &nbsp;.container{ <br>
+        &nbsp;&nbsp;grid-template-columns: auto 1fr; <br>
+        &nbsp;&nbsp;grid-template-rows: auto 1fr auto; <br>
+        &nbsp;&nbsp;grid-template-areas: <br>
+        &nbsp;&nbsp;&nbsp;"advert header" <br>
+        &nbsp;&nbsp;&nbsp;"advert content" <br>
+        &nbsp;&nbsp;&nbsp;"advert footer"; <br>
+        &nbsp;} <br>
+        }
+        @media (min-width: 400px){ <br>
+        &nbsp;.container{ <br>
+        &nbsp;&nbsp;grid-template-areas: <br>
+        &nbsp;&nbsp;&nbsp;"header header" <br>
+        &nbsp;&nbsp;&nbsp;"advert content" <br>
+        &nbsp;&nbsp;&nbsp;"footer footer"; <br>
+        &nbsp;} <br>
+        }
+      </blockquote></div>
+      <p>Here, the viewport changes when the <code>min-width: 400px</code> so that the header and footer stretches across the entire screen, whereas the advertisement is only as large as the content.</p>
+
+      <h4>Grids within Grids</h4>
+      <p>Turning an element into a grid only affects the behavior of its direct descendants. So by turning a direct descendant into a grid, you have a grid within a grid.</p>
+    </section>
+
+    <section class="main-section" id="Reference">
+      <header id="fcc">Reference</header>
+      <p>All of the information in this technical document is taken from <a href="https://learn.freecodecamp.org">freeCodeCamp</a>.</p>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>

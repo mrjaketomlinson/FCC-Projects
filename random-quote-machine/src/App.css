@@ -1,0 +1,59 @@
+body {
+  margin: 0 auto;
+  background-color: rgb(78, 74, 255);
+  color: #000;
+}
+
+.App {
+  text-align: center;
+  margin: 25% auto;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App-header {
+  height: 150px;
+  width: auto;
+  padding: 20px;
+  margin: 70px auto;
+}
+
+.App-title {
+  font-size: 40px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+#quote-text .fa {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#quote-box #quote-text {
+  font-size: 2em;
+}
+
+.quote-box {
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 50px 50px;
+  width: 500px;
+}
+
+.row {
+  margin-top: 25px;
+}
+
+button#new-quote {
+  outline: none;
+}

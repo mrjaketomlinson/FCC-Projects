@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #cc1414;
+  height: 125px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 3em;
+}
+
+.App-intro {
+  font-size: large;
+  margin-top: 10px;
+}
+
+.pomodoro {
+  display: inline-block;
+  font-size: 1.5em;
+  border: 2px solid black;
+  border-radius: 5%;
+  padding: 20px;
+}
+
+.session-settings, .break-settings {
+  display: inline-flex;
+}
+
+#session-length, #break-length {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+#timer-label {
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.btn {
+  padding-top: 10px;
+  font-size: 1.5em;
+  width: 125px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn:hover {
+  background-color: #cc1414;
+  color: white;
+}
+
+.btn:active {
+  transform: translateY(4px);
+}
+
+.fa {
+  padding: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 1.5em;
+  background-color: Transparent;
+  outline: hidden;
+  border: none;
+}
+
+.fa:hover {
+  font-size: 1.8em;
+}
+
+p {
+  font-size: 2em;
+}
+
+#time-left {
+  font-size: 2em;
+  border: 1px solid #cc1414;
+  background-color: #cc1414;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.timer {
+  display: inline-flex;
+}
